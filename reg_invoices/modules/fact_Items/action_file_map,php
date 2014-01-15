@@ -1,0 +1,5 @@
+<?php
+
+$action_file_map['UpDown'] = 'UpDown.php';
+
+?>

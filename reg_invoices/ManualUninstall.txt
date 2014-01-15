@@ -1,0 +1,36 @@
+How to manually remove a custom module when Module Loader fails to complete the uninstall
+
+Introduction
+
+Usually, custom modules built with Module Builder may be removed using Module Loader. Sometimes, however, Module Loader may not completely uninstall the custom module.
+
+
+Naming Conventions
+
+1. All directories, class names, and database tables associated with the custom module will be named using the prefix specified by the package "Key" value when the module was created.
+
+    * Example 1: Module SugarCane is located in the /modules/Key_SugarCane/ directory. 
+
+    * Example 2: References to the SugarCane Module will look like: $app_list_strings["moduleList"]["Key_SugarCane"] = 'Sugar Cane'; 
+
+2. All files associated with the custom module will include the name of the module in some way.
+
+    * Example: The language file for the "SugarCane" module would be en_us.SugarCane.php. 
+
+
+
+To Remove the Module
+
+NOTE: If more than one custom module is associated with a package, repeat steps 1-9 for each custom module before completing step 10.
+
+
+1. Edit the custom/application/Ext/include/modules.ext.php file and remove all references to the module.
+2. Edit the custom/application/Ext/Language/en_us.lang.ext.php file and remove all references to the module.
+3. Go to the custom/Extension/application/Ext/Include directory and delete the bean file for the module.
+4. Go to the custom/Extension/application/Ext/Language directory and delete the language file for the module.
+5. Go to the custom/Extension/ModuleBuilder/builds directory and delete the build directory for the module.
+6. Go to the custom/Extension/ModuleBuilder/packages directory and delete the package directory for the module.
+7. If there are relationships between the custom module and other modules, remove them the /metadata directory (5.0) or the custom/metadata directory (5.1).
+8. If the relationships generated subpanels in associated modules, remove the custom/extension/modules/{associated_module}/Ext/layoutDefs/{package_name}.php file.
+9. Delete the module files from the /modules/Key_SugarCane/ directory. If more than one module was attached to a package, then repeat the above steps before continuing to step 10.
+10. From the Admin > Repair panel, run a "quick repair" on all modules to complete the uninstall.
