@@ -1,36 +1,35 @@
 <?php
 /*********************************************************************************
- * 
+ *
  * Copyright (C) 2008 Rodrigo Saiz Camarero (http://www.regoluna.com)
  *
  * This file is part of "Regoluna® Spanish Invoices" module.
  *
- * "Regoluna® Spanish Invoices" is free software: you can redistribute it and/or 
- * modify it under the terms of the GNU Lesser General Public License as published 
+ * "Regoluna® Spanish Invoices" is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public License as published
  * by the Free Software Foundation, version 3 of the License.
- *   
+ *
  ********************************************************************************/
 
-//$app_list_strings['moduleList']['fact_Productos'] = 'Productos';
-$app_list_strings['moduleList']['fact_Facturas'] = 'Invoices';
-$app_list_strings['moduleList']['fact_Items'] = 'Items';
+$app_list_strings['moduleList']['reg_invoices'] = 'Invoices';
+$app_list_strings['moduleList']['reg_items'] = 'Items';
 
-$app_list_strings['producto_tipo_list']=array(
+$app_list_strings['producto.type.list']=array(
   'Service' => 'Service',
   'Product' => 'Product',
 );
 
 // Desplegables para el módulo de Facturas
-$app_list_strings['facturas_estado_list']=array(
+$app_list_strings['reg_invoice_state_dom']=array(
   'elaborando' =>'Draft',
   'esperando' => 'Waiting for approval',
   'emitida' => 'Emitted',
   'cobrada' => 'Paid',
 );
 
-$app_list_strings['fact_facturas_type_dom']['factura'] ='Invoice';
-$app_list_strings['fact_facturas_type_dom']['presupuesto'] ='Quote';
-$app_list_strings['fact_facturas_type_dom']['proforma'] ='Proforma';
+$app_list_strings['reg_invoices_type_dom']['invoice'] ='Invoice';
+$app_list_strings['reg_invoices_type_dom']['presupuesto'] ='Quote';
+$app_list_strings['reg_invoices_type_dom']['proforma'] ='Proforma';
 
 // Textos para creación rápida de Items en Facturas
 $app_strings['LBL_NEW_ITEM_BUTTON']="New Item";
@@ -90,7 +89,7 @@ $app_list_strings['item_unit_dom']=array(
 );
 
 // Tax Types (Spanish Facturae)
-$app_list_strings['tipo_impuesto_dom']=array(
+$app_list_strings['reg_tax_type_dom']=array(
   '01' => 'IVA',
   '04' => 'IRPF',
   '02' => 'IPSI',
@@ -110,4 +109,4 @@ $app_list_strings['tipo_impuesto_dom']=array(
 );
 
 // Añadimos una opción para el enlace de Facturas con Notas
-$app_list_strings['record_type_display_notes']['fact_Facturas'] = 'Invoice';
+$app_list_strings['record_type_display_notes']['reg_invoices'] = 'Invoice';

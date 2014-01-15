@@ -1,6 +1,6 @@
 <?php
 
-define("REGINV_INV_BEAN_NAME", 'fact_Facturas');
+define("REGINV_INV_BEAN_NAME", 'reg_invoices');
 define("REGINV_ITEM_BEAN_NAME", 'fact_Item');
 
 
@@ -42,8 +42,8 @@ class RegInvoicesTest extends SugarUnitTestCase {
   function getItem(){
     $item = $this->getBean( REGINV_ITEM_BEAN_NAME );
     $item->name = 'Foo Item ' . microtime();
-    $item->precio_ud = rand(1, 200);
-    $item->cantidad = rand(1, 10);
+    $item->unit_price = rand(1, 200);
+    $item->qty = rand(1, 10);
   }
   
   function TestItemSum(){

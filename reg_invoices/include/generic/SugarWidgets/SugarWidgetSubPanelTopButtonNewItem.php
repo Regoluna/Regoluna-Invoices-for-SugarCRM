@@ -23,8 +23,8 @@ class SugarWidgetSubPanelTopButtonNewItem extends SugarWidgetSubPanelTopButton
     global $currentModule;
     
     // Modificaciones para Crear nuevos Items en Facturas.
-    $this->additional_form_fields['factura_id']='id';
-    $this->additional_form_fields['factura_name']='name';
+    $this->additional_form_fields['invoice_id']='id';
+    $this->additional_form_fields['invoice_name']='name';
     $this->title = $app_strings['LBL_NEW_ITEM_BUTTON'];
     $this->form_value = $app_strings['LBL_NEW_ITEM_BUTTON'];
     
@@ -44,7 +44,7 @@ class SugarWidgetSubPanelTopButtonNewItem extends SugarWidgetSubPanelTopButton
       }
     }
     
-    $defines['child_module_name'] = 'fact_Items'; // Este nombre debe coincidir con el del subpanel
+    $defines['child_module_name'] = 'reg_items'; // Este nombre debe coincidir con el del subpanel
     $defines['parent_bean_name'] = get_class( $defines['focus']);
 
     $form = 'form' . $defines['child_module_name'];
@@ -84,7 +84,7 @@ class SugarWidgetSubPanelTopButtonNewItem extends SugarWidgetSubPanelTopButton
       
     //$button .= '<input type="hidden" name="action" value="SubpanelCreates" />' . "\n";
     $button .= '<input type="hidden" name="action" value="QuickEdit" />' . "\n";
-    $button .= '<input type="hidden" name="module" value="fact_Items" />' . "\n";
+    $button .= '<input type="hidden" name="module" value="reg_items" />' . "\n";
     $button .= '<input type="hidden" name="target_action" value="EditView" />' . "\n";
     
     // fill in additional form fields for all but action

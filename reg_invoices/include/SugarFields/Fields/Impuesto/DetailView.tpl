@@ -11,7 +11,7 @@
  *   
  ********************************************************************************/
 *}
-{{assign var="campo" value=$displayParams.tipo_impuesto}}
+{{assign var="campo" value=$displayParams.tax_type}}
 {{assign var="signo" value=$displayParams.signo}}
 {{assign var="siglas" value=$displayParams.siglas}}
  
@@ -23,17 +23,17 @@
  {{/if}}
 
  &nbsp;&nbsp;<i>
- {if {{$campo}} == 'repercutido'}
-	 {if trim($fields.impuesto_unico.value) }
-    ( {{$signo}} {$fields.{{$campo}}.value}% {$fields.tipo_{{$campo}}.options[$fields.tipo_{{$campo}}.value]}{{$siglas}} )
+ {if {{$campo}} == 'output_tax'}
+	 {if trim($fields.unique_tax.value) }
+    ( {{$signo}} {$fields.{{$campo}}.value}% {$fields.type.{{$campo}}.options[$fields.type.{{$campo}}.value]}{{$siglas}} )
 	 {else}
 	   ( Varios )
 	 {/if}
  {/if}
  
- {if {{$campo}} == 'retencion'}
-  {if trim($fields.retencion_unica.value) }
-	  ( {{$signo}} {$fields.{{$campo}}.value}% {$fields.tipo_{{$campo}}.options[$fields.tipo_{{$campo}}.value]}{{$siglas}} )
+ {if {{$campo}} == 'retention'}
+  {if trim($fields.unique_retention.value) }
+	  ( {{$signo}} {$fields.{{$campo}}.value}% {$fields.type.{{$campo}}.options[$fields.type.{{$campo}}.value]}{{$siglas}} )
 	{else}
 	  ( Varios )
   {/if}

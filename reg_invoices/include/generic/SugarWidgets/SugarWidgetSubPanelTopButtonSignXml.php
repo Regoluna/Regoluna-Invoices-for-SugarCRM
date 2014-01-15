@@ -41,7 +41,7 @@ class SugarWidgetSubPanelTopButtonSignXml extends SugarWidgetSubPanelTopButton
     // $button .= '<input type="hidden" name="return_action" value="' . $defines['action'] . "\" />\n";
     $button .= '<input type="hidden" name="return_id" value="' . $defines['focus']->id . "\" />\n";
     $button .= '<input type="hidden" name="action" value="Sign'.$mode.'" />' . "\n";
-    $button .= '<input type="hidden" name="module" value="fact_Facturas" />' . "\n";
+    $button .= '<input type="hidden" name="module" value="reg_invoices" />' . "\n";
     $button .= '<input type="hidden" name="record" value="'.$defines['focus']->id.'" />' . "\n";
     
     return $button;
@@ -53,7 +53,7 @@ class SugarWidgetSubPanelTopButtonSignXml extends SugarWidgetSubPanelTopButton
     if($sugar_config['fact_deactivate_applet']) return null;
     
     $mode=($defines['mode'])? strtoupper($defines['mode']) :'XML';
-    if( $mode=='XML' && ($defines['focus']->fact_facturas_type!="factura" || !($defines['focus']->numero > 0) ) ){
+    if( $mode=='XML' && ($defines['focus']->reg_invoices_type!="factura" || !($defines['focus']->number > 0) ) ){
       return null;
     } 
     return parent::display($defines, $additionalFormFields = null);

@@ -6,7 +6,7 @@ function deleteRelatedElement(sp,mod_borrar,id_borrar,rp){
 	+"&record="+get_record_id()
 	+"&sugar_body_only=1&inline=1";
 		
-	remove_url="index.php?module=fact_Items"
+	remove_url="index.php?module=reg_items"
 	+"&action=Delete"
 	+"&record="+id_borrar
 	+"&return_url="+escape(escape(return_url))
@@ -21,14 +21,14 @@ function actualizarTotal(id){
 	var form = document.createElement("form");
 	createNewFormElement(form, "record", id);
 	createNewFormElement(form, "action", "AjaxMain");
-	createNewFormElement(form, "module", "fact_Facturas");
+	createNewFormElement(form, "module", "reg_invoices");
 	createNewFormElement(form, "to_pdf", "true");
 	document.body.appendChild(form);
 	form.method = "POST";
 	form.id="update_main";
 	form.action= "index.php";
 	
-	sendAndRetrieve(form.id, 'fact_Facturas_detailview_tabs', 'Loading ...');
+	sendAndRetrieve(form.id, 'reg_invoices_detailview_tabs', 'Loading ...');
 }
  
 // Guardamos los datos cambiados mediante "QuickEdit"
@@ -38,11 +38,11 @@ function saveQuickEdit(theForm, subpanel) {
 	
 	var success = function(data) {
 		try { // Version 5.5 o superior
-		  SUGAR.subpanelUtils.cancelCreate('fact_Items_subpanel_cancel_button');
+		  SUGAR.subpanelUtils.cancelCreate('reg_items_subpanel_cancel_button');
 		} catch (err) {}
 		
 		try { // Version 5.2 o superior
-		  SUGAR.subpanelUtils.cancelCreate('subpanel_fact_items');
+		  SUGAR.subpanelUtils.cancelCreate('subpanel_reg_items');
 		} catch (err) {}
 		
 		var module = get_module_name();
@@ -91,17 +91,17 @@ function createNewFormElement(inputForm, elementName, elementValue){
  
 function quickEditItem(id){	
 	
-	var form = document.getElementById('formformfact_Items');
+	var form = document.getElementById('formformreg_items');
 
 	form.record.value = id
 	form.action.value = "QuickEdit"; 
-	form.module.value = "fact_Items";
-	//form.return_module.value = "fact_Facturas"; 
+	form.module.value = "reg_items";
+	//form.return_module.value = "reg_invoices"; 
 	form.return_action.value = "DetailView"; 
 
 
 	// Send form and retrieve into subpanel
-	SUGAR.subpanelUtils.sendAndRetrieve(form.id, 'subpanel_fact_items', 'Loading ...', 'fact_items');
+	SUGAR.subpanelUtils.sendAndRetrieve(form.id, 'subpanel_reg_items', 'Loading ...', 'reg_items');
 	
 	form.record.value = '';
 }
@@ -114,7 +114,7 @@ function upDown(sp,ordenar,id,rp){
 	+"&record="+get_record_id()
 	+"&sugar_body_only=1&inline=1";
 		
-	remove_url="index.php?module=fact_Items"
+	remove_url="index.php?module=reg_items"
 	+"&action=UpDown"
 	+"&record="+id
 	+"&factid="+get_record_id()

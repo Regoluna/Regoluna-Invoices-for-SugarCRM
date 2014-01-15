@@ -1,10 +1,10 @@
 <?php
 
 // Nuevo campo añadido a "Cuentas" para mostrar el Subpanel de Facturas
-$dictionary["Account"]["fields"]["accounts_fact_facturas"] = array (
-  'name' => 'accounts_fact_facturas',
+$dictionary["Account"]["fields"]["accounts_reg_invoices"] = array (
+  'name' => 'accounts_reg_invoices',
   'type' => 'link',
-  'relationship' => 'accounts_fact_facturas',
+  'relationship' => 'accounts_reg_invoices',
   'source' => 'non-db',
   'vname' => 'LBL_FACTURAS',
 );

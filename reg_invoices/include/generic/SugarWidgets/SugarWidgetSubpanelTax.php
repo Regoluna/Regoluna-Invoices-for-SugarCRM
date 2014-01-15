@@ -8,19 +8,19 @@ class SugarWidgetSubpanelTax extends SugarWidgetField
     //$value = $layout_def['fields']['NAME'];
     $value= $this->_get_list_value($layout_def);
     
-    $impuesto = $layout_def['fields']['IMPUESTO'];
-    $tipo_repercutido = $layout_def['fields']['TIPO_REPERCUTIDO'];
+    $tax = $layout_def['fields']['IMPUESTO'];
+    $tax_type = $layout_def['fields']['TIPO_REPERCUTIDO'];
     
-    if($layout_def['name']=='total_impuesto'){
-      $impuesto = $layout_def['fields']['IMPUESTO'];
-      $tipo_repercutido = $layout_def['fields']['TIPO_REPERCUTIDO'];
-    }else if($layout_def['name']=='total_retencion'){
-      $impuesto = $layout_def['fields']['RETENCION'];
-      $tipo_repercutido = 'IRPF';
+    if($layout_def['name']=='total_tax'){
+      $tax = $layout_def['fields']['IMPUESTO'];
+      $tax_type = $layout_def['fields']['TIPO_REPERCUTIDO'];
+    }else if($layout_def['name']=='total_retention'){
+      $tax = $layout_def['fields']['RETENCION'];
+      $tax_type = 'IRPF';
     }
     
-    if($impuesto){
-      $imp = " <span class=\"void-tax\">($impuesto% $tipo_repercutido)</span>";
+    if($tax){
+      $imp = " <span class=\"void-tax\">($tax% $tax_type)</span>";
     }
     
     if($value){
