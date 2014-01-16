@@ -38,7 +38,7 @@ class reg_invoices extends reg_invoices_sugar {
 
     // Si se marca el checkbox de auto-generar y la factura está emitida o pagada
     // calculamos el número.
-    if ($_POST['numero_autogen'] == 1 && ($this->state == 'emitida' || $this->state == 'cobrada')) {
+    if ( !empty($_POST['numero_autogen']) && $_POST['numero_autogen'] == 1 && ($this->state == 'emitida' || $this->state == 'cobrada')) {
       $this->calculateNumber();
     }
 

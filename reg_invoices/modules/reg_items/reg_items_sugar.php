@@ -72,6 +72,8 @@ class reg_items_sugar extends Basic {
 		var $iva;
 		var $discount;
 		var $total_discount;
+		var $retention;
+		var $ordered;
 
 
 

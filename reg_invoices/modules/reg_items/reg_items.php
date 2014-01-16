@@ -28,7 +28,7 @@ class reg_items extends reg_items_sugar {
 	function save($check_notify = FALSE){
 
 	  // Antes de guardar, si no tiene un "Peso" que indique el orden, le ponemos el último
-	  if(!$this->ordered && $_POST['relate_id']){
+	  if(!$this->ordered && !empty($_POST['relate_id']) ) {
   	  $sql = " SELECT MAX(ordered) ordered".
   	         " FROM reg_invoice_items f LEFT JOIN reg_items i ON (f.item_id=i.id AND f.deleted=0 AND i.deleted=0)".
   	         " WHERE invoice_id = '{$_POST['relate_id']}' ";
@@ -85,13 +85,13 @@ class reg_items extends reg_items_sugar {
 
     // Si se está ordenando, los datos están como se guardan en la base de datos
     // hay que desformatearlos para que al llamar a save() no se estropicien.
-    if(strtolower( $_REQUEST['ordenar'] ) == 'up'){
+    if( !empty($_REQUEST['ordenar']) && strtolower( $_REQUEST['ordenar'] ) == 'up'){
       $this->format_all_fields();
     }
     parent::save($check_notify);
 
     // Asociamos con la Factura correspondiente.
-    if($_POST['relate_id']){
+    if( !empty($_POST['relate_id']) ){
       $invoice = new reg_invoices();
       $invoice->retrieve($_POST['relate_id']);
       $invoice->calculateTotal();

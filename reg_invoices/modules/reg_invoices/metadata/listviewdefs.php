@@ -1,9 +1,9 @@
 <?php
 $module_name = 'reg_invoices';
 $OBJECT_NAME = 'FACT_FACTURAS';
-$listViewDefs [$module_name] = 
+$listViewDefs [$module_name] =
 array (
-  'NUMERO' => 
+  'NUMBER' =>
   array (
     'width' => '1%',
     'label' => 'LBL_NUMERO_LIST',
@@ -11,57 +11,57 @@ array (
     'related_fields' => array('year'),
     'type' => 'NumFactura',
   ),
-  'NAME' => 
+  'NAME' =>
   array (
     'width' => '30%',
     'label' => 'LBL_LIST_SALE_NAME',
     'link' => true,
     'default' => true,
   ),
-  'AMOUNT' => 
+  'AMOUNT' =>
   array (
     'width' => '10%',
     'label' => 'LBL_AMOUNT',
     'currency_format' => true,
     'default' => true,
   ),
-  'ESTADO' => 
+  'STATE' =>
   array (
     'width' => '10%',
     'label' => 'LBL_ESTADO',
     'default' => true,
   ),
-  'ASSIGNED_USER_NAME' => 
+  'ASSIGNED_USER_NAME' =>
   array (
     'width' => '5%',
     'label' => 'LBL_LIST_ASSIGNED_USER',
     'default' => true,
   ),
-  'DATE_CLOSED' => 
+  'DATE_CLOSED' =>
   array (
     'width' => '10%',
     'label' => 'LBL_FECHA_EMISION',
     'default' => true,
   ),
-  'FACT_FACTURAS_TYPE' => 
+  'FACT_FACTURAS_TYPE' =>
   array (
     'width' => '15%',
     'label' => 'LBL_TYPE',
     'default' => false,
   ),
-  'IVA' => 
+  'TAX' =>
   array (
     'width' => '10%',
     'label' => 'LBL_IVA',
     'default' => false,
   ),
-  'RETENCION' => 
+  'RETENTION' =>
   array (
     'width' => '10%',
     'label' => 'LBL_RETENCION',
     'default' => false,
   ),
-  'DESCUENTO' => 
+  'DISCOUNT' =>
   array (
     'width' => '10%',
     'label' => 'LBL_DESCUENTO',

@@ -28,7 +28,7 @@ $app_list_strings['reg_invoice_state_dom']=array(
 );
 
 $app_list_strings['reg_invoices_type_dom']['invoice'] ='Invoice';
-$app_list_strings['reg_invoices_type_dom']['presupuesto'] ='Quote';
+$app_list_strings['reg_invoices_type_dom']['estimate'] ='Estimate';
 $app_list_strings['reg_invoices_type_dom']['proforma'] ='Proforma';
 
 // Textos para creación rápida de Items en Facturas

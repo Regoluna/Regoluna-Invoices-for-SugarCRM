@@ -7,11 +7,6 @@ $subpanel_layout = array (
     array (
       'widget_class' => 'SubPanelTopCreateButton',
     ),
-    1 =>
-    array (
-      'widget_class' => 'SubPanelTopSelectButton',
-      'popup_module' => 'fact_Productos',
-    ),
   ),
   'where' => '',
   'fill_in_additional_fields' => true,
@@ -38,6 +33,7 @@ $subpanel_layout = array (
     array (
       'vname' => 'LBL_NAME',
       'widget_class' => 'SubpanelItemDescription',
+      'type' => 'textarea',
       'width' => '25%',
       'default' => true,
       'sortable'=> false,

@@ -74,7 +74,6 @@ class reg_invoices_sugar extends Sale {
 		var $sales_stage;
 		var $probability;
 		var $number;
-		var $fecha_emision;
 		var $discount;
 		var $iva;
 		var $retention;
@@ -84,6 +83,8 @@ class reg_invoices_sugar extends Sale {
     var $total_base;
     var $total_tax;
     var $total_retention;
+    var $output_tax;
+    var $currency_id;
 
 	function reg_invoices_sugar(){
 		parent::Sale();
