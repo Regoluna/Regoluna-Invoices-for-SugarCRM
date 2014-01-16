@@ -75,7 +75,7 @@ array (
         array (
           0 =>
           array (
-            'name' => 'numero',
+            'name' => 'number',
             'type' => 'NumFactura',
             'label' => 'LBL_NUMERO',
             'displayParams' => array (

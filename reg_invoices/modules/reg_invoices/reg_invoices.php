@@ -30,15 +30,14 @@ class reg_invoices extends reg_invoices_sugar {
     global $timedate;
     $fecha_partes = explode('-', $timedate->to_db($this->date_closed));
     if (is_numeric($fecha_partes[0])) {
-      $anio = $fecha_partes[0];
+      $this->year = $fecha_partes[0];
     } else {
-      $anio = '0000';
+      $this->year = '0000';
     }
-    $this->year = $anio;
 
     // Si se marca el checkbox de auto-generar y la factura está emitida o pagada
     // calculamos el número.
-    if ( !empty($_POST['numero_autogen']) && $_POST['numero_autogen'] == 1 && ($this->state == 'emitida' || $this->state == 'cobrada')) {
+    if ( !empty($_POST['number_autogen']) && $_POST['number_autogen'] == 1 && ($this->state == 'emitida' || $this->state == 'cobrada')) {
       $this->calculateNumber();
     }
 
