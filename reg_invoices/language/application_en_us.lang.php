@@ -11,7 +11,7 @@
  *
  ********************************************************************************/
 
-$app_list_strings['moduleList']['reg_invoices'] = 'Invoices';
+$app_list_strings['moduleList']['reg_invoices'] = 'Invoices and Quotes';
 $app_list_strings['moduleList']['reg_items'] = 'Items';
 
 $app_list_strings['producto.type.list']=array(
@@ -19,16 +19,20 @@ $app_list_strings['producto.type.list']=array(
   'Product' => 'Product',
 );
 
-// Desplegables para el módulo de Facturas
+// Dropdows for Regoluna Invoices Module
 $app_list_strings['reg_invoice_state_dom']=array(
-  'elaborando' =>'Draft',
-  'esperando' => 'Waiting for approval',
-  'emitida' => 'Emitted',
-  'cobrada' => 'Paid',
+  'quote_accepted' => 'Presupuesto aceptado',
+  'quote_in_process' => 'Presupuesto en elaboracion',
+  'quote_delivered' => 'Presupuesto enviado',
+  'quote_rejected' => 'Presupuesto rechazado',
+  'invoice_in_process' =>'Factura en elaboración',
+  'invoice_waiting' => 'Factura en espera de aprobación',
+  'invoice_emitted' => 'Factura Emitida',
+  'invoice_paid' => 'Factura Cobrada',
 );
 
 $app_list_strings['reg_invoices_type_dom']['invoice'] ='Invoice';
-$app_list_strings['reg_invoices_type_dom']['estimate'] ='Estimate';
+$app_list_strings['reg_invoices_type_dom']['quote'] ='Estimate';
 $app_list_strings['reg_invoices_type_dom']['proforma'] ='Proforma';
 
 // Textos para creación rápida de Items en Facturas

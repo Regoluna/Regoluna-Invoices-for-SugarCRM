@@ -9,20 +9,20 @@ array (
     'default' => true,
     'link' => true,
   ),
-  'UNIDAD' => 
+  'UNIT' => 
   array (
     'width' => '10%',
     'label' => 'LBL_UNIDAD',
     'default' => true,
   ),
-  'PRECIO_UD' => 
+  'UNIT_PRICE' => 
   array (
     'width' => '10%',
     'label' => 'LBL_PRECIO_UD',
     'currency_format' => true,
     'default' => true,
   ),
-  'TIPO' => 
+  'TYPE' => 
   array (
     'width' => '10%',
     'label' => 'LBL_TIPO',
