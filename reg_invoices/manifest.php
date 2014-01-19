@@ -69,9 +69,7 @@ $installdefs = array (
     array ( 'from' => '<basepath>/include/generic/SugarWidgets/SugarWidgetSubPanelTopButtonSignXml.php',
             'to' => 'include/generic/SugarWidgets/SugarWidgetSubPanelTopButtonSignXml.php' ),
 
-    // Sugarwidget and Styles to show description under Items
-    array ( 'from' => '<basepath>/include/generic/SugarWidgets/SugarWidgetSubpanelItemDescription.php',
-            'to' => 'include/generic/SugarWidgets/SugarWidgetSubpanelItemDescription.php' ),
+    // Styles to show description under Items
     array ( 'from' => '<basepath>/custom/themes/default/reg_invoicesStyle.css',
             'to' => 'custom/themes/default/reg_invoicesStyle.css' ),
 

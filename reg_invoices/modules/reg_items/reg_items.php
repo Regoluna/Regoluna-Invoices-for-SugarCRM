@@ -114,10 +114,15 @@ class reg_items extends reg_items_sugar {
     parent::fill_in_additional_list_fields();
     $this->format_all_fields();
 
-    if($this->unit_custom){
-      $this->qty = "$this->qty <i>$this->unit_custom</i>";
+    if($this->custom_unit){
+      $this->qty = "$this->qty <i>$this->custom_unit</i>";
     }else if ($this->unit != '05'){
       $this->qty = "$this->qty <i>".$app_list_strings['item_unit_dom'][$this->unit]."</i>";
+    }
+    
+    if( !empty($this->description) ){
+      $this->name = "<strong>$this->name</strong>".
+        "<table><tr><td style=\"border:none;\">$this->description</td></tr></table>";
     }
 
   }

@@ -20,29 +20,15 @@ $subpanel_layout = array (
       'default' => true,
       'sortable'=> false,
     ),
-        /*
-    'ordered' =>
-    array (
-      'vname' => 'LBL_ORDEN',
-      'width' => '1%',
-      'default' => true,
-      'sortable'=> false,
-    ),
-    */
    'name' =>
     array (
       'vname' => 'LBL_NAME',
-      'widget_class' => 'SubpanelItemDescription',
-      'type' => 'textarea',
-      'width' => '25%',
+      'width' => '35%',
       'default' => true,
       'sortable'=> false,
     ),
-   'description' =>
-    array (
-      'vname' => 'LBL_NAME',
-      'usage'=>'query_only',
-    ),
+      
+   'description' => array ( 'usage'=>'query_only' ),
 
     'type' =>
     array (
@@ -51,13 +37,7 @@ $subpanel_layout = array (
       'default' => true,
       'sortable'=> false,
     ),
-//    'unit' =>
-//    array (
-//      'width' => '8%',
-//      'vname' => 'LBL_UNIDAD',
-//      'default' => true,
-//      'sortable'=> false,
-//    ),
+
     'qty' =>
     array (
       'width' => '8%',
@@ -69,7 +49,6 @@ $subpanel_layout = array (
     array (
       'width' => '8%',
       'vname' => 'LBL_PRECIO_UD',
-  //    'currency_format' => true,
       'default' => true,
       'sortable'=> false,
     ),
@@ -89,9 +68,10 @@ $subpanel_layout = array (
       'sortable'=> false,
       'widget_class' => 'SubpanelTax',
     ),
+      
     'tax' =>  array ( 'usage'=>'query_only' ),
     'tax_type' =>  array ( 'usage'=>'query_only' ),
-    'unit_custom' =>  array ( 'usage'=>'query_only' ),
+    'custom_unit' =>  array ( 'usage'=>'query_only' ),
     'unit' =>  array ( 'usage'=>'query_only' ),
 
     'total_retention' =>
@@ -107,7 +87,7 @@ $subpanel_layout = array (
 
     'total_base' =>
     array (
-      'width' => '15%',
+      'width' => '10%',
       'vname' => 'LBL_TOTAL_ANTES',
       'currency_format' => true,
       'default' => true,

@@ -62,7 +62,7 @@ array (
         array (
           0 =>
           array (
-            'name' => 'unit_custom',
+            'name' => 'custom_unit',
             'label' => 'LBL_UNIDAD_CUSTOM',
           ),
           1 =>
