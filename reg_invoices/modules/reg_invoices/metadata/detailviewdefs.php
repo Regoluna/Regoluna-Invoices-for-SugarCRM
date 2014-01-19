@@ -92,7 +92,7 @@ array (
         array (
           0 =>
           array (
-            'name' => 'accounts_reg_invoices_name',
+            'name' => 'account_name',
           ),
           1 =>
           array (

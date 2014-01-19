@@ -8,14 +8,14 @@ $layout_defs["Accounts"]["subpanel_setup"]["accounts_reg_invoices"] = array (
   'sort_order' => 'asc',
   'sort_by' => 'id',
   'title_key' => 'LBL_FACTURAS',
-  'get_subpanel_data' => 'accounts_reg_invoices',
-  'top_buttons' => 
+  'get_subpanel_data' => 'reg_invoices',
+  'top_buttons' =>
   array (
-    0 => 
+    0 =>
     array (
       'widget_class' => 'SubPanelTopCreateButton',
     ),
-    1 => 
+    1 =>
     array (
       'widget_class' => 'SubPanelTopSelectButton',
       'popup_module' => 'reg_invoices',

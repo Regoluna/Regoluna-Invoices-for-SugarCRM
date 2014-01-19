@@ -40,10 +40,6 @@ $installdefs = array (
     ),
   ),
 
-  'relationships' => array (
-    array ( 'meta_data' => '<basepath>/relationships/accounts_reg_invoicesMetaData.php' ),
-  ),
-
   'copy' => array (
     // New modules
     array ( 'from' => '<basepath>/modules/reg_items', 'to' => 'modules/reg_items' ),

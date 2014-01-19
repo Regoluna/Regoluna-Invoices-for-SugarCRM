@@ -301,7 +301,7 @@ $dictionary['reg_invoices'] = array(
     'vname'=>'LBL_ITEMS',
   ),
 
-  // 3 Campos para la relación con Cuenta (obligatoria)
+  // Related Account.
   "accounts_reg_invoices" => array (
     'name' => 'accounts_reg_invoices',
     'type' => 'link',
@@ -311,25 +311,20 @@ $dictionary['reg_invoices'] = array(
     'vname' => 'LBL_ACCOUNT',
     'required' => true,
   ),
-  "accounts_reg_invoices_name" => array (
-    'name' => 'accounts_reg_invoices_name',
+  "account_name" => array (
+    'name' => 'account_name',
     'type' => 'relate',
     'source' => 'non-db',
     'vname' => 'LBL_ACCOUNT',
-    'save' => true,
     'required' => true,
-    'id_name' => 'accounts_f4ffcccounts_ida',
-    'link' => 'accounts_reg_invoices',
+    'id_name' => 'account_id',
     'table' => 'accounts',
     'module' => 'Accounts',
     'rname' => 'name',
   ),
-  "accounts_f4ffcccounts_ida" => array (
-    'name' => 'accounts_f4ffcccounts_ida',
-    'type' => 'link',
-    'relationship' => 'accounts_reg_invoices',
-    'source' => 'non-db',
-    'side' => 'right',
+  "account_id" => array (
+    'name' => 'account_id',
+    'type' => 'id',
     'vname' => 'LBL_ACCOUNT',
   ),
 
