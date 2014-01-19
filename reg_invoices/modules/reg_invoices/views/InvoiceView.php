@@ -86,8 +86,8 @@ abstract class InvoiceView extends SugarView{
     );
 
     $sql = " select *".
-           " from reg_items i JOIN reg_invoice_items f ON (i.id=f.item_id AND f.deleted=0) ".
-           " where i.deleted=0 AND invoice_id = '".$this->bean->id."' ORDER BY i.orden ASC";
+           " from reg_items i ".
+           " where deleted=0 AND invoice_id = '".$this->bean->id."' ORDER BY ordered ASC";
     $result = $this->bean->db->query($sql);
 
     // Procesamos las filas de Items para calcular los totales.

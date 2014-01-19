@@ -31,12 +31,12 @@ else
 	if($buscar){
 	  // Obtenemos el ID del item superior o inferior
 	  $sql = " SELECT i.id id ".
-	         " FROM reg_items i LEFT JOIN reg_invoice_items f ON (i.id=f.item_id AND f.deleted=0 ) ".
+	         " FROM reg_items i ".
 	         " WHERE i.deleted=0 ".
-	         " AND   f.invoice_id = '{$_REQUEST['factid']}' ".
+	         " AND   i.invoice_id = '{$_REQUEST['factid']}' ".
 	         " AND   i.ordered = ".
-	         "  ( SELECT $seleccionar FROM reg_items i2 LEFT JOIN reg_invoice_items f2 ON(f2.item_id=i2.id AND f2.deleted=0) ".
-	         "    WHERE f2.invoice_id='{$_REQUEST['factid']}' AND i2.ordered  $buscar  )";
+	         "  ( SELECT $seleccionar FROM reg_items i2 ".
+	         "    WHERE f2.invoice_id='{$_REQUEST['factid']}' AND i2.ordered  $buscar AND i2.deleted = 0  )";
     $result = $sugarbean->db->query($sql);
     $row = $sugarbean->db->fetchByAssoc($result);
     $item_id = $row['id'];
