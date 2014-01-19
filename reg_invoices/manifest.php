@@ -42,12 +42,10 @@ $installdefs = array (
 
   'relationships' => array (
     array ( 'meta_data' => '<basepath>/relationships/accounts_reg_invoicesMetaData.php' ),
-    array ( 'meta_data' => '<basepath>/relationships/reg_invoices_reg_itemsMetaData.php' ),
   ),
 
   'copy' => array (
     // New modules
-    // array ( 'from' => '<basepath>/SugarModules/modules/fact_Productos', 'to' => 'modules/fact_Productos' ),
     array ( 'from' => '<basepath>/modules/reg_items', 'to' => 'modules/reg_items' ),
     array ( 'from' => '<basepath>/modules/reg_invoices', 'to' => 'modules/reg_invoices' ),
 

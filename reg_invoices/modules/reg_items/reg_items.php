@@ -26,12 +26,17 @@ class reg_items extends reg_items_sugar {
 	//  * Peso: indica el orden dentro de la lista de Items
 	//  * Factura: obliga a la factura asociada a recalcular sus totales
 	function save($check_notify = FALSE){
+	  
+	  // For quick create.
+	  if( !empty($_REQUEST['relate_to']) && $_REQUEST['relate_to']=='reg_invoices' && !empty($_REQUEST['relate_id']) ){
+	    $this->invoice_id=$_REQUEST['relate_id'];
+	  }
 
 	  // Antes de guardar, si no tiene un "Peso" que indique el orden, le ponemos el último
 	  if(!$this->ordered && !empty($_POST['relate_id']) ) {
   	  $sql = " SELECT MAX(ordered) ordered".
-  	         " FROM reg_invoice_items f LEFT JOIN reg_items i ON (f.item_id=i.id AND f.deleted=0 AND i.deleted=0)".
-  	         " WHERE invoice_id = '{$_POST['relate_id']}' ";
+  	         " FROM reg_items ".
+  	         " WHERE invoice_id = '{$_POST['relate_id']}' AND deleted = 0 ";
   	  $result = $this->db->query($sql);
       $row = $this->db->fetchByAssoc($result);
       $ordered = $row['ordered'];

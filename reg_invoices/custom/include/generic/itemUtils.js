@@ -93,7 +93,7 @@ function quickEditItem(id){
 	
 	var form = document.getElementById('formformreg_items');
 
-	form.record.value = id
+	form.record.value = id;
 	form.action.value = "QuickEdit"; 
 	form.module.value = "reg_items";
 	//form.return_module.value = "reg_invoices"; 

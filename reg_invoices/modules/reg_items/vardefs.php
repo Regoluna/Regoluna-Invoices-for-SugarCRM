@@ -285,34 +285,25 @@ $dictionary['reg_items'] = array(
   ),
 
   // Related Invoice
-  'invoice' => array (
-    'name' => 'invoice',
-    'type' => 'link',
-    'relationship' => 'invoice_items',
-    'source' => 'non-db',
-    'side' => 'right',
-    'vname' => 'LBL_FACTURA',
-  ),
+	'invoice_id' => array (
+	  'name' => 'invoice_id',
+	  'required' => 'true',
+	  'type' => 'id',
+	  'audited' => 0,
+	  'reportable' => 0,
+	  'vname' => 'LBL_FACTURA',
+	),
   'invoice_name' => array (
     'name' => 'invoice_name',
     'type' => 'relate',
     'source' => 'non-db',
     'vname' => 'LBL_FACTURA',
-    'save' => true,
     'id_name' => 'invoice_id',
-    'link' => 'invoice',
     'table' => 'reg_invoices',
     'module' => 'reg_invoices',
-    'rname' => 'name',
+    'ext2' => 'reg_invoices',
   ),
-  'invoice_id' => array (
-    'name' => 'invoice_id',
-    'type' => 'link',
-    'relationship' => 'invoice_items',
-    'source' => 'non-db',
-    'side' => 'right',
-    'vname' => 'LBL_FACTURA',
-  ),
+	    
 
 ),
 	'relationships'=>array (

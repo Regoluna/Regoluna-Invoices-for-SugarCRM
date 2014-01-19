@@ -99,8 +99,8 @@ class reg_invoices extends reg_invoices_sugar {
 
     // Obtenemos la lista de Items con sus precios para procesarlos.
     $sql = " select total_base, tax_type, tax, total_tax, total_discount, retention, total_retention ".
-      " from reg_items i JOIN reg_invoice_items f ON (i.id=f.item_id AND f.deleted=0) ".
-      " where i.deleted=0 AND invoice_id = '$this->id' ";
+      " from reg_items ".
+      " where deleted=0 AND invoice_id = '$this->id' ";
     $result = $this->db->query($sql);
 
     // Procesamos las filas de Items para calcular los totales.

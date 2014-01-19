@@ -2,15 +2,15 @@
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 /*********************************************************************************
- * 
+ *
  * Copyright (C) 2008 Rodrigo Saiz Camarero (http://www.regoluna.com)
  *
  * This file is part of "Regoluna® Spanish Invoices" module.
  *
- * "Regoluna® Spanish Invoices" is free software: you can redistribute it and/or 
- * modify it under the terms of the GNU Lesser General Public License as published 
+ * "Regoluna® Spanish Invoices" is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public License as published
  * by the Free Software Foundation, version 3 of the License.
- *   
+ *
  ********************************************************************************/
 require_once('include/generic/SugarWidgets/SugarWidgetSubPanelTopButton.php');
 
@@ -44,7 +44,7 @@ class SugarWidgetSubPanelTopButtonNewItem extends SugarWidgetSubPanelTopButton
       }
     }
     
-    $defines['child_module_name'] = 'reg_items'; // Este nombre debe coincidir con el del subpanel
+    $defines['child_module_name'] = 'reg_items';
     $defines['parent_bean_name'] = get_class( $defines['focus']);
 
     $form = 'form' . $defines['child_module_name'];
@@ -54,6 +54,10 @@ class SugarWidgetSubPanelTopButtonNewItem extends SugarWidgetSubPanelTopButton
     $button .= "<input type='hidden' name='target_module' value='".$defines['child_module_name']."'>\n";
     $button .= "<input type='hidden' name='".strtolower($defines['parent_bean_name'])."_id' value='".$defines['focus']->id."'>\n";
 
+    $button .= "<input type='hidden' name='invoice_id' value='".$defines['focus']->id."'>\n";
+    $button .= "<input type='hidden' name='invoice_name' value='".$defines['focus']->name."'>\n";
+    
+    
     if(isset($defines['focus']->name))
     {
       $button .= "<input type='hidden' name='".strtolower($defines['parent_bean_name'])."_name' value='".$defines['focus']->name."'>";

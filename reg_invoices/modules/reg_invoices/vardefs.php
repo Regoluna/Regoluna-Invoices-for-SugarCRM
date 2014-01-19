@@ -289,14 +289,16 @@ $dictionary['reg_invoices'] = array(
         'vname' => 'LBL_IMPUESTO_UNICO',
         'type' => 'bool',
   ),
-
-  // Enlace para el subpanel de Items
-  "items" => array (
+ 
+	// For items subpanel
+  'items'=> array(
     'name' => 'items',
     'type' => 'link',
     'relationship' => 'invoice_items',
-    'source' => 'non-db',
-    'vname' => 'LBL_ITEMS',
+    'module'=>'reg_items',
+    'bean_name'=>'reg_items',
+    'source'=>'non-db',
+    'vname'=>'LBL_ITEMS',
   ),
 
   // 3 Campos para la relación con Cuenta (obligatoria)
@@ -356,6 +358,15 @@ $dictionary['reg_invoices'] = array(
     'relationship_type'=>'one-to-many',
     'relationship_role_column'=>'parent_type',
     'relationship_role_column_value'=>'reg_invoices'
+  ),
+  'invoice_items' => array(
+    'lhs_module'=> 'reg_invoices',
+    'lhs_table'=> 'reg_invoices',
+    'lhs_key' => 'id',
+    'rhs_module'=> 'reg_items',
+    'rhs_table'=> 'reg_items',
+    'rhs_key' => 'invoice_id',
+    'relationship_type'=>'one-to-many',
   ),
 ),
 
