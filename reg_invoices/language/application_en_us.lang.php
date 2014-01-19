@@ -21,9 +21,9 @@ $app_list_strings['product_type_list']=array(
 
 // Dropdows for Regoluna Invoices Module
 $app_list_strings['reg_invoice_state_dom']=array(
-  'quote_accepted' => 'Presupuesto aceptado',
   'quote_in_process' => 'Presupuesto en elaboracion',
   'quote_delivered' => 'Presupuesto enviado',
+  'quote_accepted' => 'Presupuesto aceptado',
   'quote_rejected' => 'Presupuesto rechazado',
   'invoice_in_process' =>'Factura en elaboración',
   'invoice_waiting' => 'Factura en espera de aprobación',
