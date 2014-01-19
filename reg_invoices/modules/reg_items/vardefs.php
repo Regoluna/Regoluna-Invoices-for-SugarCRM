@@ -30,7 +30,7 @@ $dictionary['reg_items'] = array(
     'audited' => 0,
     'reportable' => 0,
     'len' => 100,
-    'options' => 'producto_type_list',
+    'options' => 'product_type_list',
     'studio' => 'visible',
   ),
   'unit_price' =>

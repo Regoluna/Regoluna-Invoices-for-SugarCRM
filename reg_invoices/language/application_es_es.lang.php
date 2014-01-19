@@ -15,7 +15,7 @@ $app_list_strings['moduleList']['reg_invoices'] = 'Facturas y Presupuestos';
 $app_list_strings['moduleList']['reg_items'] = 'Items';
 
 
-$app_list_strings['producto.type.list']=array(
+$app_list_strings['product_type_list']=array(
   'Service' => 'Servicio',
   'Product' => 'Producto',
 );
