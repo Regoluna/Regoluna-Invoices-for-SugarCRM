@@ -49,9 +49,8 @@ abstract class InvoiceView extends SugarView{
       $this->sellerInfo['RegistrationData']= $sugar_config['fact_registration_surname2'];
     }
 
-    $this->bean->load_relationship('accounts_reg_invoices');
     $account = new Account();
-    $account->retrieve($this->bean->accounts_f4ffcccounts_ida);
+    $account->retrieve($this->bean->account_id);
 
     $nif_field = ($sugar_config['fact_account_nif_field'])? $sugar_config['fact_account_nif_field'] : 'nonexistenfield' ;
     $this->buyerInfo = array(
