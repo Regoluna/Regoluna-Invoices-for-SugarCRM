@@ -2,7 +2,7 @@
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 
 require_once('include/utils.php');
-require_once('include/formbase.php'); 
+require_once('include/formbase.php');
 
 require_once('modules/reg_items/reg_items.php');
 if(file_exists('modules/reg_invoices/reg_invoices.php')){
@@ -26,7 +26,7 @@ else
 	$GLOBALS['log']->info("deleting Item: $record");
 
 	// Antes de borrar, obtenemos el ID de la factura
-  $sql = " select factura_id from fact.invoice_items.where deleted=0 and item_id = '$record' ";  
+  $sql = " select invoice_id from invoice_items where deleted=0 and id = '$record' ";
   $result = $sugarbean->db->query($sql);
   $row = $sugarbean->db->fetchByAssoc($result);
   $invoice_id = $row['invoice_id'];
@@ -34,7 +34,7 @@ else
 	// Borramos el Item
 	$sugarbean->mark_deleted($record);
 
-	// Actualizamos la factura asociada.  
+	// Actualizamos la factura asociada.
   if($invoice_id){
     $invoice = new reg_invoices();
     $invoice->retrieve($invoice_id);
