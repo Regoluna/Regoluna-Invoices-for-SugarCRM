@@ -13,7 +13,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
 ********************************************************************************/
 require_once('include/Dashlets/DashletGenericChart.php');
 
-class FacturasChartDashlet extends DashletGenericChart
+class RegInvoicesChartDashlet extends DashletGenericChart
 {
   public $fcd_ids = array();
   public $fcd_date_start;
@@ -64,17 +64,12 @@ class FacturasChartDashlet extends DashletGenericChart
     );
 
     require_once('include/SugarCharts/SugarChartFactory.php');
+    
+    // Special chart config for RegInvoices
     $sugarChart = SugarChartFactory::getInstance('Jit','RegInvoices');
-//     $sugarChart = SugarChartFactory::getInstance();
+
     $sugarChart->setProperties('', translate('LBL_FACT_SIZE', 'reg_invoices') . ' ' . $currency_symbol . '1' .translate('LBL_OPP_THOUSANDS', 'Charts'), $chartDef['chartType']);
 
-//     $sugarChart->setColors(array('#FF0000', '#FF6600', '#00AA00', '#FFFFFF'));
-
-//     $GLOBALS['log']->fatal( 'Volcando clase: ' . get_class($sugarChart) );
-//     $GLOBALS['log']->fatal( print_r($sugarChart->colors_list, true) );
-//     $GLOBALS['log']->fatal( print_r($sugarChart, true) );
-
-    ///@todo El método setColors parece que ya no funciona
 
     $sugarChart->base_url = $chartDef['base_url'];
     $sugarChart->is_currency = true;
@@ -87,10 +82,6 @@ class FacturasChartDashlet extends DashletGenericChart
     $xmlFile = $sugarChart->getXMLFileName($this->id);
     $sugarChart->saveXMLFile($xmlFile, $sugarChart->generateXML());
 
-//     $GLOBALS['log']->fatal( 'Volcando clase: ' . get_class($sugarChart) );
-//     $GLOBALS['log']->fatal( print_r($sugarChart->colors_list, true) );
-//     $GLOBALS['log']->fatal( print_r($sugarChart, true) );
-
     return $this->getTitle('<div align="center"></div>') .
     '<div align="center">' . $sugarChart->display($this->id, $xmlFile, '100%', '480', false) . '</div><br />';
   }
@@ -102,15 +93,15 @@ class FacturasChartDashlet extends DashletGenericChart
   {
 
     $query =  'SELECT '.
-        ' .state.estado_advanced,'.
-        '  DATE_FORMAT(reg_invoices.date_closed,"%Y-%m") as m, '.
-        '  sum(amount/1000) as total, '.
-        '  count(*) as fact_count '.
+        '  reg_invoices.state AS state_advanced,'.
+        '  DATE_FORMAT(reg_invoices.date_closed,"%Y-%m") AS m, '.
+        '  sum(amount/1000) AS total, '.
+        '  count(*) AS fact_count '.
         'FROM reg_invoices '.
         'WHERE reg_invoices.date_closed >= DATE_FORMAT("'.$this->fcd_date_start.'", "%Y-%m-%d %H:%i:%s") '.
         '  AND reg_invoices.date_closed <= DATE_FORMAT("'.$this->fcd_date_end.'", "%Y-%m-%d %H:%i:%s") '.
-        '  AND reg_invoices.deleted=0 AND reg_invoices_type=\'factura\' '.
-        'GROUP BY state DATE_FORMAT(reg_invoices.date_closed,"%Y-%m") ORDER BY m';
+        '  AND reg_invoices.deleted=0 AND reg_invoices_type=\'invoice\' '.
+        'GROUP BY state, DATE_FORMAT(reg_invoices.date_closed,"%Y-%m") ORDER BY m';
 
     return ($query);
   }
@@ -119,10 +110,7 @@ class FacturasChartDashlet extends DashletGenericChart
    * Sorts data to force statuses always the same color.
    */
   protected function sortData( & $dataset ){
-
-//     $GLOBALS['log']->fatal( print_r($dataset, true) );
-
-
+    ///@todo sort and clean data
   }
 
 }
