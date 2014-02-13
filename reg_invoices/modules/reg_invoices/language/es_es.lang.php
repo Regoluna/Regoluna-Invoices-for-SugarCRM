@@ -1,14 +1,14 @@
 <?php
 /*********************************************************************************
- * 
+ *
  * Copyright (C) 2008 Rodrigo Saiz Camarero (http://www.regoluna.com)
  *
  * This file is part of "Regoluna® Spanish Invoices" module.
  *
- * "Regoluna® Spanish Invoices" is free software: you can redistribute it and/or 
- * modify it under the terms of the GNU Lesser General Public License as published 
+ * "Regoluna® Spanish Invoices" is free software: you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public License as published
  * by the Free Software Foundation, version 3 of the License.
- *   
+ *
  ********************************************************************************/
 $mod_strings = array (
   'LBL_ASSIGNED_TO_ID' => 'Asignado a Usuario con Id',
@@ -104,6 +104,8 @@ $mod_strings = array (
   'LBL_SALE_INFORMATION' => 'Información sobre la Factura',
   'LBL_HOMEPAGE_TITLE' => 'Mi Facturas',
   'LNK_NEW_RECORD' => 'Crear Facturas',
+  'LNK_NEW_INVOICE' => 'Nueva Factura',
+  'LNK_NEW_QUOTE' => 'Nuevo presupuesto',
   'LNK_LIST' => 'Facturas',
   'LBL_FACT_FACTURAS_SUBPANEL_TITLE' => 'Facturas',
   'LBL_NUMERO' => 'Numero',
