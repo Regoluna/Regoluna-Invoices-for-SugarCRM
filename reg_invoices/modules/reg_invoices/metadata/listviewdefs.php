@@ -3,6 +3,11 @@ $module_name = 'reg_invoices';
 $OBJECT_NAME = 'FACT_FACTURAS';
 $listViewDefs [$module_name] =
 array (
+  'REG_INVOICES_TYPE' => array (
+    'width' => '3%',
+    'label' => 'LBL_TYPE',
+    'default' => true,
+  ),
   'NUMBER' =>
   array (
     'width' => '1%',

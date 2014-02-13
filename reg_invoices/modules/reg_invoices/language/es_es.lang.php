@@ -145,4 +145,4 @@ $mod_strings = array (
   'LBL_PRINT'=>'Imprimir',
   'LBL_PRINT_TITLE'=>'Descargar PDF e imprimir directamente',
 );
-?>
+
