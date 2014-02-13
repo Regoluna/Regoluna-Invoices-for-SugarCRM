@@ -37,12 +37,16 @@ class reg_invoices extends reg_invoices_sugar {
 
     // Si se marca el checkbox de auto-generar y la factura está emitida o pagada
     // calculamos el número.
-    if ( !empty($_POST['number_autogen']) && $_POST['number_autogen'] == 1 && ($this->state == 'emitida' || $this->state == 'cobrada')) {
+    if ( !empty($_POST['number_autogen']) && $_POST['number_autogen'] == 1 &&
+         ( $this->reg_invoices_type !='invoice' || ($this->state == 'invoice_emitted' || $this->state == 'invoice_paid') )
+       ) {
       $this->calculateNumber();
     }
 
     // echo "Antes de guardar - Si no esta formateado, lo hacemos<br/>";
     if(!$this->number_formatting_done) $this->format_all_fields();
+    
+    if( empty($this->number) ) $this->number = '';
 
     // No usamos el campo 'amount_usdollar' sin embargo, su definición por defecto puede dar problemas
     $this->field_defs['amount_usdollar']['disable_num_format']=0; // corrige un comportamiento inadecuado
