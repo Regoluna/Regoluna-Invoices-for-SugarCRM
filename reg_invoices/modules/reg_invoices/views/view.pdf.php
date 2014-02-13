@@ -152,6 +152,10 @@ class reg_invoicesViewPdf extends InvoiceView{
     if( is_numeric($this->buyerInfo['PostCode']) && $this->buyerInfo['PostCode']==0){
       unset($this->buyerInfo['PostCode']);
     }
+    // Addresses witch line breaks
+    if( !empty( $this->buyerInfo['Address']) ){
+      $this->buyerInfo['Address'] = str_replace("\n", "<br>", $this->buyerInfo['Address'] );
+    }
     $this->ss->assign("Buyer",$this->buyerInfo );
 
 
