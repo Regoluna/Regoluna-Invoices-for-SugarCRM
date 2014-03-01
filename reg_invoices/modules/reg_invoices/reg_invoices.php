@@ -23,8 +23,10 @@ class reg_invoices extends reg_invoices_sugar {
   }
 
   function save($check_notify = FALSE) {
-
-    $this->calculateTotal();
+    
+    if( empty( $_REQUEST['duplicateSave'] ) || $_REQUEST['duplicateSave'] === 'false' ){
+      $this->calculateTotal();
+    }
 
     // Guardamos el año, en función de la fecha.
     global $timedate;
@@ -50,7 +52,17 @@ class reg_invoices extends reg_invoices_sugar {
 
     // No usamos el campo 'amount_usdollar' sin embargo, su definición por defecto puede dar problemas
     $this->field_defs['amount_usdollar']['disable_num_format']=0; // corrige un comportamiento inadecuado
+        
     parent::save($check_notify);
+    
+    // If you are duplicating an invoice
+    if( !empty( $_REQUEST['duplicateSave'] ) && $_REQUEST['duplicateSave'] !== 'false' ){
+      $this->duplicateItemsFromInvoiceId( $_REQUEST['duplicateId'] );
+      
+      $_REQUEST['duplicateSave'] = 'false'; // Prevento loop
+      $this->save();
+    }
+  
   }
 
 
@@ -165,6 +177,22 @@ class reg_invoices extends reg_invoices_sugar {
     global $sugar_config;
     if ($sugar_config['fact_restart_number'] && $this->year && $this->number) {
       $this->number = "{$this->year}/{$this->number}";
+    }
+  }
+  
+  protected function duplicateItemsFromInvoiceId( $id ){
+        
+    $previousInvoice = new reg_invoices();
+    $previousInvoice->retrieve($id);
+    
+    $previousInvoice->load_relationship('items');
+    $this->load_relationship('items');
+
+    foreach ($previousInvoice->items->getBeans() as $item) {
+      $item->id = null; // This creates a copy of the item
+      $item->relate_id = null; // Prevent múltiple total calculation
+      $item->save();
+      $this->items->add( $item->id );
     }
   }
 

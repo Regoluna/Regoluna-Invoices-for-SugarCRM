@@ -12,9 +12,8 @@ array (
         'headerTpl' => 'modules/reg_invoices/views/detailViewHeader.tpl',
         'buttons' =>
         array ( 'EDIT',
-          // 'DUPLICATE',
+          'DUPLICATE',
           'DELETE',
-//        array ( 'customCode' => '<input title="{$APP.LBL_DUP_MERGE}" accesskey="M" class="button" onclick="this.form.return_module.value=\'reg_invoices\';this.form.return_action.value=\'DetailView\';this.form.return_id.value=\'{$fields.id.value}\'; this.form.action.value=\'Step1\'; this.form.module.value=\'MergeRecords\';" name="button" value="{$APP.LBL_DUP_MERGE}" type="submit">', ),
           array('customCode'=>
                   '<input title="{$MOD.LBL_FACTURAE_TITLE}" accesskey="F" class="button" '.
                   'onclick="this.form.action.value=\'XmlView\'; this.form.module.value=\'reg_invoices\';" '.

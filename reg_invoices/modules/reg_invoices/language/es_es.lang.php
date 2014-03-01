@@ -144,5 +144,6 @@ $mod_strings = array (
   'LBL_SIGN_PDF'=>'Firmar PDF',
   'LBL_PRINT'=>'Imprimir',
   'LBL_PRINT_TITLE'=>'Descargar PDF e imprimir directamente',
+  'LBL_COPY' => 'copia',
 );
 

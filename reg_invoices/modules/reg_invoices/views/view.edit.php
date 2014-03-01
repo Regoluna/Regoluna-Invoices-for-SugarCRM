@@ -27,6 +27,19 @@ class reg_invoicesViewEdit extends ViewEdit {
       }
     }
     
+    if( !empty( $_REQUEST['isDuplicate'] ) && $_REQUEST['isDuplicate'] !== 'false' ){
+      
+      $this->bean->number = null;
+      
+      $timedate = TimeDate::getInstance();
+      $this->bean->date_closed = $timedate->asUserDate(new SugarDateTime(), $GLOBALS['current_user']);
+      
+      if( !empty($this->bean->name) ) $this->bean->name = $this->bean->name . ' (' . translate('LBL_COPY', 'reg_invoices') . ')';
+      
+      if( $this->bean->reg_invoices_type == 'invoice' ) $this->bean->state = 'invoice_in_process';
+      elseif ( $this->bean->reg_invoices_type == 'quote' ) $this->bean->state = 'quote_in_process';
+    }
+    
     parent::display();
   }
   
