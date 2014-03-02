@@ -92,11 +92,13 @@ class RegInvoicesChartDashlet extends DashletGenericChart
    */
   protected function constructQuery()
   {
-
+ 
+    $amountColumnName = ( $this->with_taxes == 1 )? 'amount' : 'total_base' ;
+    
     $query =  'SELECT '.
         '  reg_invoices.state AS state_in_chart,'.
         '  DATE_FORMAT(reg_invoices.date_closed,"%Y-%m") AS m, '.
-        '  sum(amount/1000) AS total, '.
+        '  sum('.$amountColumnName.'/1000) AS total, '.
         '  count(*) AS fact_count '.
         'FROM reg_invoices '.
         'WHERE reg_invoices.date_closed >= DATE_FORMAT("'.$this->fcd_date_start.'", "%Y-%m-%d %H:%i:%s") '.

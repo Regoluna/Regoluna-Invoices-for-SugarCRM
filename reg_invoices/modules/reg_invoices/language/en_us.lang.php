@@ -144,5 +144,6 @@ $mod_strings = array (
   'LBL_PRINT'=>'Print',
   'LBL_PRINT_TITLE'=>'Load PDF and print',
   'LBL_COPY' => 'copy',
+  'LBL_AMOUNT_WITH_TAXES' => 'Amount with taxes',
 );
 ?>
