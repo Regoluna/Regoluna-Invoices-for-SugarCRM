@@ -36,6 +36,7 @@ $mod_strings = array (
   'LBL_LIST_SALE_NAME' => 'Name',
   'LBL_LIST_ACCOUNT_NAME' => 'Account Name',
   'LBL_LIST_AMOUNT' => 'Amount',
+  'LBL_WITH_TAXES' => 'With Taxes',
   'LBL_LIST_DATE_CLOSED' => 'Close',
   'LBL_LIST_SALE_STAGE' => 'Sales Stage',
   'LBL_ACCOUNT_ID' => 'Account ID',

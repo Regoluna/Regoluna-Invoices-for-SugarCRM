@@ -23,10 +23,18 @@ array (
     'link' => true,
     'default' => true,
   ),
-  'AMOUNT' =>
+  'TOTAL_BASE' =>
   array (
     'width' => '10%',
     'label' => 'LBL_AMOUNT',
+    'type' => 'Currency',
+    'currency_format' => true,
+    'default' => true,
+  ),
+  'AMOUNT' =>
+  array (
+    'width' => '10%',
+    'label' => 'LBL_WITH_TAXES',
     'currency_format' => true,
     'default' => true,
   ),
@@ -40,7 +48,7 @@ array (
   array (
     'width' => '5%',
     'label' => 'LBL_LIST_ASSIGNED_USER',
-    'default' => true,
+    'default' => false,
   ),
   'DATE_CLOSED' =>
   array (
