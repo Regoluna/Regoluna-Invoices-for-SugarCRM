@@ -54,8 +54,9 @@ class RegInvoicesChartDashlet extends DashletGenericChart
         'label' => 'Invoices by Month',
         'chartUnits' => 'Invoice Size in $1K',
         'chartType' => 'stacked group by chart',
-        'groupBy' => array( 'm', 'state_advanced', ),
-        'base_url'=> array( 'module' => 'reg_invoices',
+        'groupBy' => array( 'm', 'state_in_chart', ),
+        'base_url'=> array(
+            'module' => 'reg_invoices',
             'action' => 'index',
             'query' => 'true',
             'searchFormTab' => 'advanced_search',
@@ -93,7 +94,7 @@ class RegInvoicesChartDashlet extends DashletGenericChart
   {
 
     $query =  'SELECT '.
-        '  reg_invoices.state AS state_advanced,'.
+        '  reg_invoices.state AS state_in_chart,'.
         '  DATE_FORMAT(reg_invoices.date_closed,"%Y-%m") AS m, '.
         '  sum(amount/1000) AS total, '.
         '  count(*) AS fact_count '.
@@ -110,7 +111,47 @@ class RegInvoicesChartDashlet extends DashletGenericChart
    * Sorts data to force statuses always the same color.
    */
   protected function sortData( & $dataset ){
-    ///@todo sort and clean data
+    global $app_list_strings;
+    
+    $dataByMonth = array();
+    foreach($dataset as $field){
+      $dataByMonth[$field['m']][]=$field;
+    }
+    
+    //  Fill empty data on first month. This ensures color association.
+    $dataset=array();
+    $firstItem=true;
+    foreach($dataByMonth as $i=>$month){
+    
+      // Tratamiento del primer elemento
+      if($firstItem){
+        $count=0;
+        $nuevo=array();
+        $states=array('invoice_emitted','invoice_paid','invoice_in_process' );
+    
+        foreach($states as $e){
+          if($month[$count]['state_in_chart']==$e){
+            $nuevo[]=$month[$count];
+            $count++;
+          }else{
+            if($e!='elaborando' && $e!='esperando')
+              $nuevo[]=array('state_in_chart'=>$e,'m'=>$i,'total'=>0);
+          }
+        }
+        $dataByMonth[$i]=$nuevo;
+        $firstItem = false;
+      }
+    
+      // Fill original dataset
+      foreach($dataByMonth[$i] as $m) $dataset[]=$m;
+    
+    }
+    
+    // Tranlate .
+    foreach($dataset as $i=>$d){
+      $dataset[$i]['state_in_chart'] = $app_list_strings['reg_invoice_state_dom'][$d['state_in_chart']];
+    }
+
   }
 
 }

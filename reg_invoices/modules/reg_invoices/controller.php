@@ -41,6 +41,22 @@ class reg_invoicesController extends SugarController{
   function action_SignPdf(){
     $this->view = 'SignXml';
   }
+  
+  function action_listview(){
+    if($_REQUEST['state_in_chart']) $this->correctStateFilterFromChart();
+    parent::action_listview();
+  }
+  
+  function correctStateFilterFromChart(){
+    global $app_list_strings;
+    $_REQUEST['state_advanced'] = $_REQUEST['state_in_chart'];
+    foreach($app_list_strings['reg_invoice_state_dom'] as $i=>$t){
+      if($_REQUEST['state_in_chart']==$t){
+        $_REQUEST['state_advanced']=$i;
+        break;
+      }
+    }
+  }
 
   // Adds a note with attachment from signed XML or PDF.
   function action_AddNote(){

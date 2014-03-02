@@ -21,7 +21,8 @@ class JitRegInvoices extends Jit {
     // Alter default color
     $xml->charts->chartElementColors->color[0]='0xFF0000';
     $xml->charts->chartElementColors->color[1]='0x00FF00';
-    $xml->charts->chartElementColors->color[2]='0x0000FF';
+    $xml->charts->chartElementColors->color[2]='0x9FBCFF';
+    $xml->charts->chartElementColors->color[3]='0xFFBE4E';
     
     return $xml->charts;
   }

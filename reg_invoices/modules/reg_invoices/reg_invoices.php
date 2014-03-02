@@ -195,5 +195,9 @@ class reg_invoices extends reg_invoices_sugar {
       $this->items->add( $item->id );
     }
   }
+  
+  public static function correctFilterOptionsFromChart(){
+    
+  }
 
 }
