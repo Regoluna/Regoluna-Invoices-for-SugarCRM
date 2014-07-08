@@ -47,6 +47,8 @@ $dictionary['reg_invoices'] = array(
     'reportable' => 0,
     'len' => '11',
     'disable_num_format' => true,
+    'enable_range_search' => true,
+    'options' => 'numeric_range_search_dom'
   ),
   'date_closed' =>
   array (
@@ -63,6 +65,8 @@ $dictionary['reg_invoices'] = array(
     'audited' => 1,
     'reportable' => 0,
     'display_default' => 'now',
+    'enable_range_search' => true,
+    'options' => 'date_range_search_dom'
   ),
   'description' =>
   array (
@@ -237,6 +241,8 @@ $dictionary['reg_invoices'] = array(
     'reportable' => 0,
     'len' => '18',
     'precision' => '2',
+    'enable_range_search' => true,
+    'options' => 'numeric_range_search_dom'
     //'disable_num_format' => '1'
   ),
   'total_tax' =>
