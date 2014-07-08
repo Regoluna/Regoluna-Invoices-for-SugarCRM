@@ -21,7 +21,7 @@ $subpanel_layout = array (
       'name' => 'name',
       'vname' => 'LBL_LIST_SALE_NAME',
       'widget_class' => 'SubPanelDetailViewLink',
-      'width' => '40%',
+      'width' => '35%',
       'default' => true,
     ),
     'state' =>
@@ -35,19 +35,27 @@ $subpanel_layout = array (
     array (
       'name' => 'date_closed',
       'vname' => 'LBL_FECHA_EMISION',
-      'width' => '15%',
+      'width' => '12%',
+      'default' => true,
+    ),
+    'total_base' =>
+    array (
+      'vname' => 'LBL_AMOUNT',
+      'width' => '7%',
+      'currency_format' => true,
+      'type' => 'Currency',
       'default' => true,
     ),
     'amount' =>
     array (
-      'vname' => 'LBL_LIST_AMOUNT',
-      'width' => '15%',
+      'vname' => 'LBL_WITH_TAXES',
+      'width' => '8%',
       'currency_format' => true,
       'default' => true,
     ),
     'reg_invoices_type' =>
     array (
-      'width' => '15%',
+      'width' => '5%',
       'vname' => 'LBL_TYPE',
       'default' => false,
     ),
@@ -55,14 +63,14 @@ $subpanel_layout = array (
     array (
       'widget_class' => 'SubPanelEditButton',
       'module' => 'reg_invoices',
-      'width' => '4%',
+      'width' => '6%',
       'default' => true,
     ),
     'remove_button' =>
     array (
       'widget_class' => 'SubPanelRemoveButton',
       'module' => 'reg_invoices',
-      'width' => '5%',
+      'width' => '6%',
       'default' => true,
     ),
     'amount_usdollar' =>
