@@ -327,6 +327,7 @@ $dictionary['reg_invoices'] = array(
     'table' => 'accounts',
     'module' => 'Accounts',
     'rname' => 'name',
+    'link'=>'accounts_reg_invoices',
   ),
   "account_id" => array (
     'name' => 'account_id',

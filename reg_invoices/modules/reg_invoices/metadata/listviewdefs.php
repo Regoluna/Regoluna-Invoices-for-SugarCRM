@@ -23,6 +23,15 @@ array (
     'link' => true,
     'default' => true,
   ),
+  'ACCOUNT_NAME' =>
+  array (
+    'width' => '20%',
+    'label' => 'LBL_ACCOUNT',
+    'default' => true,
+    'link' => true,
+    'ACLTag' => 'ACCOUNT',
+    'related_fields' => array('account_id'),
+  ),
   'TOTAL_BASE' =>
   array (
     'width' => '10%',
