@@ -30,12 +30,18 @@ class reg_invoices extends reg_invoices_sugar {
 
     // Guardamos el año, en función de la fecha.
     global $timedate;
-    $fecha_partes = explode('-', $timedate->to_db($this->date_closed));
-    if (is_numeric($fecha_partes[0])) {
-      $this->year = $fecha_partes[0];
-    } else {
-      $this->year = '0000';
+    
+    if( !is_numeric($this->year) ){
+      $cierre = $timedate->to_db($this->date_closed);
+      $fecha_partes = explode('-', $timedate->to_db($this->date_closed));
+      
+      if (is_numeric($fecha_partes[0])) {
+        $this->year = $fecha_partes[0];
+      } else {
+        $this->year = '0000';
+      }
     }
+    
 
     // Si se marca el checkbox de auto-generar y la factura está emitida o pagada
     // calculamos el número.
@@ -59,7 +65,7 @@ class reg_invoices extends reg_invoices_sugar {
     if( !empty( $_REQUEST['duplicateSave'] ) && $_REQUEST['duplicateSave'] !== 'false' ){
       $this->duplicateItemsFromInvoiceId( $_REQUEST['duplicateId'] );
       
-      $_REQUEST['duplicateSave'] = 'false'; // Prevento loop
+      $_REQUEST['duplicateSave'] = 'false'; // Prevent loop
       $this->save();
     }
   
@@ -78,11 +84,11 @@ class reg_invoices extends reg_invoices_sugar {
 
     // Para el caso en el que la facturación se reinicie anualmente
     $anual = ($sugar_config['fact_restart_number']) ? " AND year = $this->year" : '';
-
+    
     $sql = " select MAX(number) number".
       " from reg_invoices ".
       " where deleted=0 AND reg_invoices_type = '$this->reg_invoices_type' AND id <> '$this->id' $anual";
-
+      
     $result = $this->db->query($sql);
     $row = $this->db->fetchByAssoc($result);
     if ($row['number']) {
