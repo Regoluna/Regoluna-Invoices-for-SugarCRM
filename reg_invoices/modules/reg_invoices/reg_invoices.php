@@ -206,7 +206,7 @@ class reg_invoices extends reg_invoices_sugar {
     
   }
   
-  public function attatchPdf( $name = null ){
+  public function attachPdf( $name = null ){
     global $sugar_config;
     require_once('modules/reg_invoices/views/view.pdf.php');
     require_once('modules/Notes/Note.php');
