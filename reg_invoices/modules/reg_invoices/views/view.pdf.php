@@ -47,7 +47,7 @@ class reg_invoicesViewPdf extends InvoiceView{
   );
 
 
-  function display(){
+  function display( $fileInServer = null ){
     require_once('include/html2pdf/html2pdf.class.php');
     global $app_list_strings;
     global $sugar_config;
@@ -177,8 +177,14 @@ class reg_invoicesViewPdf extends InvoiceView{
     $html2pdf->pdf->SetDisplayMode('fullpage');
     if(strtolower($_REQUEST['action'])=='printpdf') $html2pdf->pdf->IncludeJS("print(true);");
     $html2pdf->WriteHTML($contenido);
-    ob_clean();
-    $html2pdf->Output('Factura.pdf');
+    
+    if( !$fileInServer ){
+      ob_clean();
+      $html2pdf->Output('Factura.pdf');
+    }else{
+      $html2pdf->Output($fileInServer , 'F');
+    }
+    
   }
 
   function getUnit($unit){
@@ -245,6 +251,7 @@ class reg_invoicesViewPdf extends InvoiceView{
     }
 
     // Formateamos los impuestos indirectos
+    if( is_array($this->infoTaxesWithheld) )
     foreach($this->infoTaxesWithheld as $t=>$info){
       foreach($info as $i=>$value){
         if( is_string($value) && preg_match('/[0-9]*\.[0-9][0-9]/',$value) ){

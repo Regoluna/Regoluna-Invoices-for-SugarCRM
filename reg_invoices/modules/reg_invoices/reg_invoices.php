@@ -205,5 +205,30 @@ class reg_invoices extends reg_invoices_sugar {
   public static function correctFilterOptionsFromChart(){
     
   }
+  
+  public function attatchPdf( $name = null ){
+    global $sugar_config;
+    require_once('modules/reg_invoices/views/view.pdf.php');
+    require_once('modules/Notes/Note.php');
+    
+    if( empty($name) ) $name = 'Invoice';
+    
+    // We need a note
+    $note=new Note();
+    $note->name = $name;
+    $note->parent_type="reg_invoices";
+    $note->parent_id=$this->id;
+    $note->file_mime_type="application/pdf";
+    $note->filename="$name.pdf";
+    $note->save();
+    
+    $view = new reg_invoicesViewPdf();
+    $view->bean = $this;
+    $view->preDisplay();
+    
+    $saveToFile = trim($sugar_config['upload_dir'], ' /') . "/$note->id";
+    $view->display( "$saveToFile.pdf" );
+    rename( "$saveToFile.pdf", $saveToFile );
+  }
 
 }
