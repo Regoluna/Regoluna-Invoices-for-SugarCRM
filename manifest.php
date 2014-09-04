@@ -98,12 +98,6 @@ $installdefs = array (
     array ( 'from' => '<basepath>/custom/modules/Configurator/reg_invoices_Config.php', 'to' => 'custom/modules/Configurator/reg_invoices_Config.php' ),
     array ( 'from' => '<basepath>/custom/modules/Configurator/tpls/reg_invoices_Config.tpl', 'to' => 'custom/modules/Configurator/tpls/reg_invoices_Config.tpl' ),
     array ( 'from' => '<basepath>/custom/modules/Administration/reg_invoices_Check.php', 'to' => 'custom/modules/Administration/reg_invoices_Check.php' ),
-
-    // simpletest
-    ///@todo migrate to phpunit
-    // array ( 'from' => '<basepath>/test', 'to' => 'custom/test/reg_invoices' ),
-
-
   ),
 
   'language' => array (
