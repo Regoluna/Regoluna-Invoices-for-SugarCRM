@@ -39,9 +39,13 @@ $installdefs = array (
   ),
 
   'copy' => array (
-    // New modules
+    // Modules
     array ( 'from' => '<basepath>/modules/reg_items', 'to' => 'modules/reg_items' ),
     array ( 'from' => '<basepath>/modules/reg_invoices', 'to' => 'modules/reg_invoices' ),
+    
+    array ( 'from' => '<basepath>/modules/reg_companies', 'to' => 'modules/reg_companies' ),
+    array ( 'from' => '<basepath>/custom/Extension/application/Ext/Include/reg_companies.php',
+             'to' => 'custom/Extension/application/Ext/Include/reg_companies.php' ),
 
     // Some Javascript for Ajax edit o delete items
     array ( 'from' => '<basepath>/custom/include/generic/itemUtils.js',
