@@ -3,10 +3,9 @@
 $manifest = array (
   'acceptable_sugar_versions' => array ( 'regex_matches' => array ( "6.*\.*"), ),
   'acceptable_sugar_flavors' => array( 'CE', 'PRO','ENT' ),
-//  'readme'=>'',
   'key'=>'reg',
   'author' => 'Rodrigo Saiz Camarero',
-  'description' => 'Proporciona soporte básico para generar facturas sencillas. Orientado a pequeñas empresas y autónomos que facturan servicios.',
+  'description' => 'Provides basic support to generate simple invoices. Aimed at small businesses and freelancers who bill services.',
   'icon' => '',
   'is_uninstallable' => true,
   'name' => 'Regoluna Invoices',
@@ -20,7 +19,6 @@ $installdefs = array (
   'image_dir' => '<basepath>/icons',
 
   'layoutdefs' => array (
-    // Panel de Facturas en Cuentas.
     array( 'from'=> '<basepath>/subpanels/accounts_subpanels.php', 'to_module'=> 'Accounts' ),
   ),
 
@@ -90,7 +88,7 @@ $installdefs = array (
 //    array ( 'from' => '<basepath>/include/CryptoApplet_V2.1.0', 'to' => 'include/CryptoApplet' ),
 
     // Install new Chart into Charts module
-    array ( 'from' => '<basepath>/charts/RegInvoicesChartDashlet', 'to' => 'modules/Charts/Dashlets/RegInvoicesChartDashlet' ),
+    array ( 'from' => '<basepath>/modules/Charts/Dashlets/RegInvoicesChartDashlet', 'to' => 'modules/Charts/Dashlets/RegInvoicesChartDashlet' ),
     // Chart engine to correct colors
     array ( 'from' => '<basepath>/custom/include/SugarCharts/Jit/JitRegInvoices.php', 'to' => 'custom/include/SugarCharts/Jit/JitRegInvoices.php' ),
 
