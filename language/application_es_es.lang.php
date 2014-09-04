@@ -117,3 +117,11 @@ $app_list_strings['reg_tax_type_dom']=array(
 // Añadimos una opción para el enlace de Facturas con Notas
 $app_list_strings['record_type_display_notes']['reg_invoices'] = 'Factura';
 
+// Companies
+$app_list_strings['reg_companies_type_dom']['F']='Persona física';
+$app_list_strings['reg_companies_type_dom']['J']='Persona jurídica';
+
+$app_list_strings['reg_companies_residence_dom']['R']='Residente en España';
+$app_list_strings['reg_companies_residence_dom']['U']='Residente en la unión Europea';
+$app_list_strings['reg_companies_residence_dom']['E']='Extranjero';
+
