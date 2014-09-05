@@ -1,5 +1,6 @@
 <?php
 require_once('include/DetailView/DetailView2.php');
+require_once('modules/reg_companies/reg_companies.php');
 
 abstract class InvoiceView extends SugarView{
 
@@ -15,11 +16,14 @@ abstract class InvoiceView extends SugarView{
   protected $infoInvoice;
   protected $buyerInfo;
   protected $sellerInfo;
+  protected $issuer;
 
   // On pre display, calculates values for templates.
   function preDisplay(){
     global $app_list_strings;
-
+    
+    $this->issuer = $this->getIssuerCompany();
+    
     parent::preDisplay();
     $this->calcularInfo();
     $this->infoParties();
@@ -27,26 +31,29 @@ abstract class InvoiceView extends SugarView{
 
   function infoParties(){
     global $sugar_config;
+    
+    $issuer = $this->issuer;
+    
     $this->sellerInfo = array(
-      'PersonTypeCode'=>$sugar_config['fact_person_type_code'],
-      'ResidenceTypeCode'=>$sugar_config['fact_residence_type_code'],
-      'TaxIdentificationNumber'=>$sugar_config['fact_tax_number'],
-      'Address'=>$sugar_config['fact_address'],
-      'PostCode'=>$sugar_config['fact_post_code'],
-      'Town'=>$sugar_config['fact_town'],
-      'Province'=>$sugar_config['fact_province'],
-      'CountryCode'=>$sugar_config['fact_country_code'],
+      'PersonTypeCode'=>$issuer->type,
+      'ResidenceTypeCode'=>$issuer->residence,
+      'TaxIdentificationNumber'=>$issuer->nif,
+      'Address'=>$issuer->billing_address_street,
+      'PostCode'=>$issuer->billing_address_postalcode,
+      'Town'=>$issuer->billing_address_city,
+      'Province'=>$issuer->billing_address_state,
+      'CountryCode'=>$issuer->billing_address_country,
     );
 
     // Names and other attributes depends on person type
-    if($sugar_config['fact_person_type_code']=='F'){
-      $this->sellerInfo['Name']= $sugar_config['fact_corporate_name'];
-      $this->sellerInfo['FirstSurname']= $sugar_config['fact_trade_name_surname1'];
-      $this->sellerInfo['SecondSurname']= $sugar_config['fact_registration_surname2'];
+    if( $issuer->type=='F' ){
+      $this->sellerInfo['Name']= $issuer->name;
+      $this->sellerInfo['FirstSurname']= $issuer->name2;
+      $this->sellerInfo['SecondSurname']= $issuer->name3;
     }else{
-      $this->sellerInfo['CorporateName']= $sugar_config['fact_corporate_name'];
-      $this->sellerInfo['TradeName']= $sugar_config['fact_trade_name_surname1'];
-      $this->sellerInfo['RegistrationData']= $sugar_config['fact_registration_surname2'];
+      $this->sellerInfo['CorporateName']= $issuer->name;
+      //$this->sellerInfo['TradeName']= $issuer->name2;
+      //$this->sellerInfo['RegistrationData']= $issuer->name3;
     }
 
     $account = new Account();
@@ -66,6 +73,20 @@ abstract class InvoiceView extends SugarView{
     );
 
 
+  }
+  
+  protected function getIssuerCompany(){
+    $issuer = new reg_companies();
+    
+    if( !empty($this->bean->issuer_id) ){
+      $issuer->retrieve($this->bean->issuer_id);
+    }
+    
+    if( empty($issuer->id) ){
+      $issuer->retrieveDefault();
+    }
+    
+    return $issuer;
   }
 
   // Calculamos la información que se mostrará en las facturas PDF y Facturae

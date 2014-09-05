@@ -79,4 +79,13 @@ class reg_companies extends Basic {
 		return $response;
 	}
 	
+	public function retrieveDefault(){
+		$sql = 'SELECT id FROM reg_companies WHERE deleted=0 AND is_default=1';
+		$result = $this->db->query( $sql );
+		$row = $this->db->fetchByAssoc($result);
+		if( !empty($row['id']) ){
+			$this->retrieve( $row['id'] );
+		}
+	}
+	
 }

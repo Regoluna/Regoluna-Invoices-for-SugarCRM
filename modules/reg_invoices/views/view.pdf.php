@@ -66,10 +66,18 @@ class reg_invoicesViewPdf extends InvoiceView{
     if(trim($this->bean->description)){
       $this->ss->assign("Descripcion",from_html($this->bean->description));
     }
-    // Condiciones generales
+    
+    // General conditions
     if(trim($this->bean->conditions)){
-      $this->ss->assign("Condiciones",from_html($this->bean->conditions));
+      $conditionsText = $this->bean->conditions;
     }
+    // General conditions for Issuer
+    if(trim($this->issuer->description)){
+      if( $conditionsText ) $conditionsText .= "<br>";
+      $conditionsText .= nl2br($this->issuer->description);
+    }
+    $this->ss->assign("Condiciones",from_html($conditionsText));
+    
     // Logo (definir en config.php)
     $ruta_logo = $sugar_config['fact_path_to_logo'];
     if($ruta_logo && file_exists($ruta_logo) ){
