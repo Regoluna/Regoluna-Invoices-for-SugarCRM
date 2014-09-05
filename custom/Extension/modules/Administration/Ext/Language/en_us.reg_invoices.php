@@ -9,6 +9,9 @@ $mod_strings['LBL_FACT_CONFIG_DESC']= 'Opciones de numeración y generación de 
 $mod_strings['LBL_FACT_CHECK']= 'System check';
 $mod_strings['LBL_FACT_CHECK_DESC']= 'Check dependencies and configuration';
 
+$mod_strings['LBL_FACT_COMPANIES']= 'Companies';
+$mod_strings['LBL_FACT_COMPANIES_DESC']= 'Defines companies that are issuing invoices';
+
 // Sección de comprobación
 $mod_strings['LBL_CHECKING_GD']= 'Checking GD ...';
 $mod_strings['LBL_GD_INSTALLED']= 'It looks like GD is installed';
@@ -24,5 +27,3 @@ $mod_strings['LBL_CRYPTOAPPLET_INSTALL_HOW_TO']=
   '<p>To be able to digitally sign documents you need to download CryptoApplet from '.
   '<a href="http://forja.uji.es/frs/download.php/124/CryptoApplet_V2.1.0.tgz">this link</a>. '.
   'Uncompress and save it to <strong>include/CryptoApplet</strong> and visit this page again.</p>';
-
-?>

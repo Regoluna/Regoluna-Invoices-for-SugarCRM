@@ -1,7 +1,6 @@
 <?php
 // *******************************
-// Nuevas opciones de configuración 
-// REGOLUNA INVOICES
+// REGOLUNA INVOICES Configuration sections 
 // *******************************
 
 if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
@@ -12,9 +11,7 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * Permission is granted for use, copying, modification, distribution,
  * and distribution of modified versions of this work as long as the
  * above copyright notice is included.
- */
-
-/**
+ * 
  * @package reg_invoices
  * @author Rodrigo Saiz Camarero <rodrigo@regoluna.com>
  */
@@ -25,18 +22,28 @@ $admin_option_defs = array();
 
 // Invoice options
 $admin_option_defs[] = array(
-  'Administration',
+  'reg_invoices',
   'LBL_FACT_CONFIG',
   'LBL_FACT_CONFIG_DESC',
   './index.php?module=Configurator&action=reg_invoices_Config',
 );
 
 // Dependencies checker
+//// temporarily disabled
+
+//$admin_option_defs[] = array(
+//  'Administration',
+//  'LBL_FACT_CHECK',
+//  'LBL_FACT_CHECK_DESC',
+//  './index.php?module=Administration&action=reg_invoices_Check',
+//);
+
+// Multiple 
 $admin_option_defs[] = array(
-  'Administration',
-  'LBL_FACT_CHECK',
-  'LBL_FACT_CHECK_DESC',
-  './index.php?module=Administration&action=reg_invoices_Check',
+  'icon_Address',
+  'LBL_FACT_COMPANIES',
+  'LBL_FACT_COMPANIES_DESC',
+  './index.php?module=reg_companies',
 );
 
 /*
