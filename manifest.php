@@ -97,6 +97,8 @@ $installdefs = array (
     array ( 'from' => '<basepath>/custom/include/SugarCharts/Jit/JitRegInvoices.php', 'to' => 'custom/include/SugarCharts/Jit/JitRegInvoices.php' ),
 
     // Administration sections
+    array ( 'from' => '<basepath>/custom/Extension/modules/Administration/Ext/Administration/reg_invoices_options.php',
+            'to' => 'custom/Extension/modules/Administration/Ext/Administration/reg_invoices_options.php' ),    
     array ( 'from' => '<basepath>/custom/modules/Configurator/reg_invoices_Config.php', 'to' => 'custom/modules/Configurator/reg_invoices_Config.php' ),
     array ( 'from' => '<basepath>/custom/modules/Configurator/tpls/reg_invoices_Config.tpl', 'to' => 'custom/modules/Configurator/tpls/reg_invoices_Config.tpl' ),
     array ( 'from' => '<basepath>/custom/modules/Administration/reg_invoices_Check.php', 'to' => 'custom/modules/Administration/reg_invoices_Check.php' ),
@@ -120,12 +122,6 @@ $installdefs = array (
     array ('from' => '<basepath>/vardefs/accounts_vardefs.php', 'to_module' => 'Accounts' ),
   ),
 
-  // Administration section
-  'administration' => array(
-    array(
-      'from' => '<basepath>/administration/reg_invoices_options.php',
-    ),
-  ),
 
 
 );
