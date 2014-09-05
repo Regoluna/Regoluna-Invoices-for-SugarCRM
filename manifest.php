@@ -174,40 +174,46 @@ $installdefs = array (
       'from' => '<basepath>/custom/Extension/modules/Administration/Ext/Language/es_es.reg_invoices.php',
       'to' => 'custom/Extension/modules/Administration/Ext/Language/es_es.reg_invoices.php',
     ),
+    24 => 
+    array (
+      'from' => '<basepath>/custom/Extension/application/Ext/Language/en_us.reg_invoices.php',
+      'to' => 'custom/Extension/application/Ext/Language/en_us.reg_invoices.php',
+    ),
+    25 => 
+    array (
+      'from' => '<basepath>/custom/Extension/application/Ext/Language/es_es.reg_invoices.php',
+      'to' => 'custom/Extension/application/Ext/Language/es_es.reg_invoices.php',
+    ),
+    26 => 
+    array (
+      'from' => '<basepath>/custom/Extension/modules/Accounts/Ext/Language/en_us.reg_invoices.php',
+      'to' => 'custom/Extension/modules/Accounts/Ext/Language/en_us.reg_invoices.php',
+    ),
+    27 => 
+    array (
+      'from' => '<basepath>/custom/Extension/modules/Accounts/Ext/Language/es_es.reg_invoices.php',
+      'to' => 'custom/Extension/modules/Accounts/Ext/Language/es_es.reg_invoices.php',
+    ),
+    28 => 
+    array (
+      'from' => '<basepath>/custom/Extension/modules/Configurator/Ext/Language/en_us.reg_invoices.php',
+      'to' => 'custom/Extension/modules/Configurator/Ext/Language/en_us.reg_invoices.php',
+    ),
+    29 => 
+    array (
+      'from' => '<basepath>/custom/Extension/modules/Configurator/Ext/Language/es_es.reg_invoices.php',
+      'to' => 'custom/Extension/modules/Configurator/Ext/Language/es_es.reg_invoices.php',
+    ),
   ),
   'language' => 
   array (
-    0 => 
-    array (
-      'from' => '<basepath>/language/application_es_es.lang.php',
-      'to_module' => 'application',
-      'language' => 'es_es',
-    ),
-    1 => 
-    array (
-      'from' => '<basepath>/language/application_en_us.lang.php',
-      'to_module' => 'application',
-      'language' => 'en_us',
-    ),
     2 => 
-    array (
-      'from' => '<basepath>/language/accounts_es_es.lang.php',
-      'to_module' => 'Accounts',
-      'language' => 'es_es',
-    ),
-    3 => 
-    array (
-      'from' => '<basepath>/language/accounts_en_us.lang.php',
-      'to_module' => 'Accounts',
-      'language' => 'en_us',
-    ),
-    4 => 
     array (
       'from' => '<basepath>/language/configurator_es_es.lang.php',
       'to_module' => 'Configurator',
       'language' => 'es_es',
     ),
-    5 => 
+    3 => 
     array (
       'from' => '<basepath>/language/configurator_en_us.lang.php',
       'to_module' => 'Configurator',

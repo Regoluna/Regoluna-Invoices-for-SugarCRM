@@ -13,6 +13,7 @@
 
 $app_list_strings['moduleList']['reg_invoices'] = 'Invoices and Quotes';
 $app_list_strings['moduleList']['reg_items'] = 'Items';
+$app_list_strings['moduleList']['reg_companies'] = 'Companies';
 
 $app_list_strings['product_type_list']=array(
   'Service' => 'Service',

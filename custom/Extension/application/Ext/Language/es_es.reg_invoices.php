@@ -13,7 +13,7 @@
 
 $app_list_strings['moduleList']['reg_invoices'] = 'Facturas y Presupuestos';
 $app_list_strings['moduleList']['reg_items'] = 'Items';
-
+$app_list_strings['moduleList']['reg_companies'] = 'Empresas emisoras';
 
 $app_list_strings['product_type_list']=array(
   'Service' => 'Servicio',
