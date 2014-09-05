@@ -217,6 +217,13 @@ $dictionary['reg_companies'] = array(
       'size' => '20',
     ),
     
+    'is_default' => array (
+      'massupdate' => false,
+      'name' => 'is_default',
+      'vname' => 'LBL_IS_DEFAULT',
+      'type' => 'bool',
+    ),
+    
   ),
   
 	'relationships'=>array (

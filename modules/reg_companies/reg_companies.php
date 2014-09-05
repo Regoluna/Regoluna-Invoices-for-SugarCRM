@@ -47,4 +47,22 @@ class reg_companies extends Basic {
 		return false;
 	}
 	
+	function save( $check_notify = FALSE ){
+		
+		// You cannot remove default check directly
+		if( !$this->is_default
+			  && !empty($this->fetched_row['is_default'])
+			  && $this->fetched_row['is_default']
+		){
+			$this->is_default = true;
+		}
+		
+		// Only one default company
+		if( $this->is_default && !$this->fetched_row['is_default'] ){
+			$this->db->query( 'UPDATE reg_companies SET is_default = 0' );
+		}
+		
+		parent::save( $check_notify );
+	}
+	
 }

@@ -20,7 +20,7 @@ $viewdefs[$module_name]['DetailView'] = array(
     'default' => array (
       array ( 'name', 'name2' ),
       array ( 'nif', 'name3'  ),
-      array ( 'description' ),
+      array ( 'description', 'is_default' ),
     ),
     
     'lbl_billing_address_panel' => array (

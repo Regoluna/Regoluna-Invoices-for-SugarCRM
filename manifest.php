@@ -205,21 +205,7 @@ $installdefs = array (
       'to' => 'custom/Extension/modules/Configurator/Ext/Language/es_es.reg_invoices.php',
     ),
   ),
-  'language' => 
-  array (
-    2 => 
-    array (
-      'from' => '<basepath>/language/configurator_es_es.lang.php',
-      'to_module' => 'Configurator',
-      'language' => 'es_es',
-    ),
-    3 => 
-    array (
-      'from' => '<basepath>/language/configurator_en_us.lang.php',
-      'to_module' => 'Configurator',
-      'language' => 'en_us',
-    ),
-  ),
+
   'vardefs' => 
   array (
     0 => 

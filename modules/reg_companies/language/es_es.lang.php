@@ -44,4 +44,5 @@ $mod_strings = array (
   'LBL_CONDITIONS' => 'Condiciones (factura)',
   'LBL_FACTURAE_PANEL' => 'Opciones Facturae (solo aplicable en España)',
   'LBL_BILLING_ADDRESS_PANEL' => 'Dirección de facturador',
+  'LBL_IS_DEFAULT' => 'Por defecto',
 );
