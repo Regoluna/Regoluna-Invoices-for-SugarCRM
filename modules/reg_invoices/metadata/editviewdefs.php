@@ -51,12 +51,7 @@ array (
             'type' => 'NumFactura',
             'label' => 'LBL_NUMERO',
           ),
-          1 => null,
-/// Temporalmente deshabilitado hasta ver que hacemos con el descuento general.
-//          array (
-//            'name' => 'discount',
-//            'label' => 'LBL_DESCUENTO',
-//          ),
+          1 => 'issuer_id'
         ),
         2 =>
         array (

@@ -57,7 +57,7 @@ array (
     array (
       'default' =>
       array (
-        0 =>
+
         array (
           0 =>
           array (
@@ -70,7 +70,7 @@ array (
             'label' => 'LBL_TOTAL_ITEMS',
           ),
         ),
-        1 =>
+
         array (
           0 =>
           array (
@@ -87,7 +87,7 @@ array (
             'label' => 'LBL_TOTAL_DESCUENTO',
           ),
         ),
-        2 =>
+
         array (
           0 =>
           array (
@@ -104,7 +104,7 @@ array (
             ),
           ),
         ),
-        3 =>
+
         array (
           0 =>
           array (
@@ -123,7 +123,7 @@ array (
             ),
           ),
         ),
-        4 =>
+
         array (
           0 =>
           array (
@@ -132,7 +132,9 @@ array (
           ),
           1 => NULL,
         ),
-        5 =>
+
+        array ( 'issuer', NULL ),
+
         array (
           0 =>
           array (
@@ -145,7 +147,7 @@ array (
             'label' => 'LBL_AMOUNT',
           ),
         ),
-        6 =>
+
         array (
           0 =>
           array (
@@ -153,7 +155,7 @@ array (
             'label' => 'LBL_DESCRIPTION',
           ),
         ),
-        7 =>
+
         array (
           0 =>
           array (

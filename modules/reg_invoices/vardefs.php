@@ -334,8 +334,29 @@ $dictionary['reg_invoices'] = array(
     'type' => 'id',
     'vname' => 'LBL_ACCOUNT',
   ),
+  
+  // Related Company (Issuer).
+  'issuer' => array (
+    'name' => 'issuer',
+    'type' => 'relate',
+    'source' => 'non-db',
+    'vname' => 'LBL_ISSUER',
+    'required' => true,
+    'id_name' => 'issuer_id',
+    'table' => 'reg_companies',
+    'module' => 'reg_companies',
+    'rname' => 'name',
+  ),
+  'issuer_id' => array (
+    'name' => 'issuer_id',
+    'type' => 'enum',
+    'vname' => 'LBL_ISSUER',
+    'function' => 'regInvoicesGetCompaniesDropdown',
+    'studio' => array('fields' => false, 'listview' => false, ),
+    'massupdate' => true,
+  ),
 
-  // Para el Subpanel con NOTAS
+  // For Notes Subpanel
   'notes' =>
   array (
     'name' => 'notes',

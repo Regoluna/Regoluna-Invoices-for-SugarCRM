@@ -34,171 +34,165 @@ $installdefs = array (
       'to_module' => 'Accounts',
     ),
   ),
-  'beans' => 
-  array (
-    0 => 
-    array (
-      'module' => 'reg_invoices',
-      'class' => 'reg_invoices',
-      'path' => 'modules/reg_invoices/reg_invoices.php',
-      'tab' => true,
-    ),
-    1 => 
-    array (
-      'module' => 'reg_items',
-      'class' => 'reg_items',
-      'path' => 'modules/reg_items/reg_items.php',
-      'tab' => false,
-    ),
-  ),
+
   'copy' => 
   array (
-    0 => 
+
     array (
       'from' => '<basepath>/modules/reg_items',
       'to' => 'modules/reg_items',
     ),
-    1 => 
+
     array (
       'from' => '<basepath>/modules/reg_invoices',
       'to' => 'modules/reg_invoices',
     ),
-    2 => 
+
     array (
       'from' => '<basepath>/modules/reg_companies',
       'to' => 'modules/reg_companies',
     ),
-    3 => 
+
     array (
       'from' => '<basepath>/custom/Extension/application/Ext/Include/reg_companies.php',
       'to' => 'custom/Extension/application/Ext/Include/reg_companies.php',
     ),
-    4 => 
+    
+    array (
+      'from' => '<basepath>/custom/Extension/application/Ext/Include/reg_invoices.php',
+      'to' => 'custom/Extension/application/Ext/Include/reg_invoices.php',
+    ),
+    
+    array (
+      'from' => '<basepath>/custom/Extension/application/Ext/Include/reg_items.php',
+      'to' => 'custom/Extension/application/Ext/Include/reg_items.php',
+    ),
+
     array (
       'from' => '<basepath>/custom/include/generic/itemUtils.js',
       'to' => 'custom/include/generic/itemUtils.js',
     ),
-    5 => 
+
     array (
       'from' => '<basepath>/include/generic/SugarWidgets/SugarWidgetSubPanelDeleteRelatedButton.php',
       'to' => 'include/generic/SugarWidgets/SugarWidgetSubPanelDeleteRelatedButton.php',
     ),
-    6 => 
+
     array (
       'from' => '<basepath>/include/generic/SugarWidgets/SugarWidgetSubPanelTopButtonNewItem.php',
       'to' => 'include/generic/SugarWidgets/SugarWidgetSubPanelTopButtonNewItem.php',
     ),
-    7 => 
+
     array (
       'from' => '<basepath>/include/generic/SugarWidgets/SugarWidgetSubPanelQuickItem.php',
       'to' => 'include/generic/SugarWidgets/SugarWidgetSubPanelQuickItem.php',
     ),
-    8 => 
+
     array (
       'from' => '<basepath>/include/generic/SugarWidgets/SugarWidgetSubPanelUpDownButton.php',
       'to' => 'include/generic/SugarWidgets/SugarWidgetSubPanelUpDownButton.php',
     ),
-    9 => 
+
     array (
       'from' => '<basepath>/include/generic/SugarWidgets/SugarWidgetSubPanelTopButtonSignXml.php',
       'to' => 'include/generic/SugarWidgets/SugarWidgetSubPanelTopButtonSignXml.php',
     ),
-    10 => 
+
     array (
       'from' => '<basepath>/custom/themes/default/reg_invoicesStyle.css',
       'to' => 'custom/themes/default/reg_invoicesStyle.css',
     ),
-    11 => 
+
     array (
       'from' => '<basepath>/include/generic/SugarWidgets/SugarWidgetSubpanelTax.php',
       'to' => 'include/generic/SugarWidgets/SugarWidgetSubpanelTax.php',
     ),
-    12 => 
+
     array (
       'from' => '<basepath>/include/SugarFields/Fields/Htmledit',
       'to' => 'include/SugarFields/Fields/Htmledit',
     ),
-    13 => 
+
     array (
       'from' => '<basepath>/include/SugarFields/Fields/Impuesto',
       'to' => 'include/SugarFields/Fields/Impuesto',
     ),
-    14 => 
+
     array (
       'from' => '<basepath>/include/SugarFields/Fields/NumFactura',
       'to' => 'include/SugarFields/Fields/NumFactura',
     ),
-    15 => 
+
     array (
       'from' => '<basepath>/include/html2pdf_v3.28',
       'to' => 'include/html2pdf',
     ),
-    16 => 
+
     array (
       'from' => '<basepath>/modules/Charts/Dashlets/RegInvoicesChartDashlet',
       'to' => 'modules/Charts/Dashlets/RegInvoicesChartDashlet',
     ),
-    17 => 
+
     array (
       'from' => '<basepath>/custom/include/SugarCharts/Jit/JitRegInvoices.php',
       'to' => 'custom/include/SugarCharts/Jit/JitRegInvoices.php',
     ),
-    18 => 
+
     array (
       'from' => '<basepath>/custom/Extension/modules/Administration/Ext/Administration/reg_invoices_options.php',
       'to' => 'custom/Extension/modules/Administration/Ext/Administration/reg_invoices_options.php',
     ),
-    19 => 
+
     array (
       'from' => '<basepath>/custom/modules/Configurator/reg_invoices_Config.php',
       'to' => 'custom/modules/Configurator/reg_invoices_Config.php',
     ),
-    20 => 
+
     array (
       'from' => '<basepath>/custom/modules/Configurator/tpls/reg_invoices_Config.tpl',
       'to' => 'custom/modules/Configurator/tpls/reg_invoices_Config.tpl',
     ),
-    21 => 
+
     array (
       'from' => '<basepath>/custom/modules/Administration/reg_invoices_Check.php',
       'to' => 'custom/modules/Administration/reg_invoices_Check.php',
     ),
-    22 => 
+
     array (
       'from' => '<basepath>/custom/Extension/modules/Administration/Ext/Language/en_us.reg_invoices.php',
       'to' => 'custom/Extension/modules/Administration/Ext/Language/en_us.reg_invoices.php',
     ),
-    23 => 
+
     array (
       'from' => '<basepath>/custom/Extension/modules/Administration/Ext/Language/es_es.reg_invoices.php',
       'to' => 'custom/Extension/modules/Administration/Ext/Language/es_es.reg_invoices.php',
     ),
-    24 => 
+
     array (
       'from' => '<basepath>/custom/Extension/application/Ext/Language/en_us.reg_invoices.php',
       'to' => 'custom/Extension/application/Ext/Language/en_us.reg_invoices.php',
     ),
-    25 => 
+
     array (
       'from' => '<basepath>/custom/Extension/application/Ext/Language/es_es.reg_invoices.php',
       'to' => 'custom/Extension/application/Ext/Language/es_es.reg_invoices.php',
     ),
-    26 => 
+
     array (
       'from' => '<basepath>/custom/Extension/modules/Accounts/Ext/Language/en_us.reg_invoices.php',
       'to' => 'custom/Extension/modules/Accounts/Ext/Language/en_us.reg_invoices.php',
     ),
-    27 => 
+
     array (
       'from' => '<basepath>/custom/Extension/modules/Accounts/Ext/Language/es_es.reg_invoices.php',
       'to' => 'custom/Extension/modules/Accounts/Ext/Language/es_es.reg_invoices.php',
     ),
-    28 => 
+
     array (
       'from' => '<basepath>/custom/Extension/modules/Configurator/Ext/Language/en_us.reg_invoices.php',
       'to' => 'custom/Extension/modules/Configurator/Ext/Language/en_us.reg_invoices.php',
     ),
-    29 => 
+
     array (
       'from' => '<basepath>/custom/Extension/modules/Configurator/Ext/Language/es_es.reg_invoices.php',
       'to' => 'custom/Extension/modules/Configurator/Ext/Language/es_es.reg_invoices.php',
@@ -234,6 +228,10 @@ $installdefs = array (
     array (
       'from' => '<basepath>/custom/themes/default/images/reg_companies.gif',
       'to' => 'custom/themes/default/images/reg_companies.gif',
+    ),
+    array (
+      'from' => '<basepath>/custom/Extension/application/Ext/Utils/reg_invoices.php',
+      'to' => 'custom/Extension/application/Ext/Utils/reg_invoices.php',
     ),
   ),
 

@@ -65,4 +65,18 @@ class reg_companies extends Basic {
 		parent::save( $check_notify );
 	}
 	
+	/**
+	 * Get list of available companies for Issuer dropdown
+	 */
+	public static function getAvailableCompaniesList(){
+		$db = DBManagerFactory::getInstance();
+		$sql = 'SELECT id, name, is_default FROM reg_companies WHERE deleted=0 ORDER BY is_default DESC';
+		$result = $db->query( $sql );
+		$response = array();
+		while( $row = $db->fetchByAssoc($result) ){
+			$response[ $row['id'] ] = $row['name'];
+		}
+		return $response;
+	}
+	
 }

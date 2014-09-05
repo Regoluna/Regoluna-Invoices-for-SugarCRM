@@ -147,5 +147,6 @@ $mod_strings = array (
   'LBL_PRINT_TITLE'=>'Descargar PDF e imprimir directamente',
   'LBL_COPY' => 'copia',
   'LBL_AMOUNT_WITH_TAXES' => 'Mostrar cantidades con impuestos',
+  'LBL_ISSUER' => 'Emisor',
 );
 
