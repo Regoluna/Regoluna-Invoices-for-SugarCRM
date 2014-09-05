@@ -26,7 +26,6 @@ $manifest = array (
 
 $installdefs = array (
   'id' => 'reg_invoices',
-  'image_dir' => '<basepath>/icons',
   'layoutdefs' => 
   array (
     0 => 
@@ -203,6 +202,38 @@ $installdefs = array (
     array (
       'from' => '<basepath>/custom/Extension/modules/Configurator/Ext/Language/es_es.reg_invoices.php',
       'to' => 'custom/Extension/modules/Configurator/Ext/Language/es_es.reg_invoices.php',
+    ),
+    array (
+      'from' => '<basepath>/custom/themes/default/images/Createreg_companies.gif',
+      'to' => 'custom/themes/default/images/Createreg_companies.gif',
+    ),
+    array (
+      'from' => '<basepath>/custom/themes/default/images/Createreg_invoices.gif',
+      'to' => 'custom/themes/default/images/Createreg_invoices.gif',
+    ),
+    array (
+      'from' => '<basepath>/custom/themes/default/images/icon_reg_invoices.gif',
+      'to' => 'custom/themes/default/images/icon_reg_invoices.gif',
+    ),
+    array (
+      'from' => '<basepath>/custom/themes/default/images/icon_reg_invoices_32.gif',
+      'to' => 'custom/themes/default/images/icon_reg_invoices_32.gif',
+    ),
+    array (
+      'from' => '<basepath>/custom/themes/default/images/icon_reg_companies.gif',
+      'to' => 'custom/themes/default/images/icon_reg_companies.gif',
+    ),
+    array (
+      'from' => '<basepath>/custom/themes/default/images/icon_reg_companies_32.gif',
+      'to' => 'custom/themes/default/images/icon_reg_companies_32.gif',
+    ),
+    array (
+      'from' => '<basepath>/custom/themes/default/images/reg_invoices.gif',
+      'to' => 'custom/themes/default/images/reg_invoices.gif',
+    ),
+    array (
+      'from' => '<basepath>/custom/themes/default/images/reg_companies.gif',
+      'to' => 'custom/themes/default/images/reg_companies.gif',
     ),
   ),
 
