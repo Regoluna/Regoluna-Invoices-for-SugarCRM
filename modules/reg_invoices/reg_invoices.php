@@ -79,24 +79,10 @@ class reg_invoices extends Sale {
     if( empty( $_REQUEST['duplicateSave'] ) || $_REQUEST['duplicateSave'] === 'false' ){
       $this->calculateTotal();
     }
-
-    // Guardamos el año, en función de la fecha.
-    global $timedate;
     
-    if( !is_numeric($this->year) ){
-      $cierre = $timedate->to_db($this->date_closed);
-      $fecha_partes = explode('-', $timedate->to_db($this->date_closed));
-      
-      if (is_numeric($fecha_partes[0])) {
-        $this->year = $fecha_partes[0];
-      } else {
-        $this->year = '0000';
-      }
-    }
+    if( !is_numeric($this->year) ) $this->calculateYear();
     
-
-    // Si se marca el checkbox de auto-generar y la factura está emitida o pagada
-    // calculamos el número.
+    // Auto-generate invoice number.
     if ( !empty($_POST['number_autogen']) && $_POST['number_autogen'] == 1 &&
          ( $this->reg_invoices_type !='invoice' || ($this->state == 'invoice_emitted' || $this->state == 'invoice_paid') )
        ) {
@@ -123,6 +109,20 @@ class reg_invoices extends Sale {
   
   }
 
+  /**
+   * Save Year based on closed date.
+   */
+  private function calculateYear(){
+    global $timedate;
+    $cierre = $timedate->to_db($this->date_closed);
+    $dateParts = explode('-', $timedate->to_db($this->date_closed));
+    
+    if (is_numeric($dateParts[0])) {
+      $this->year = $dateParts[0];
+    } else {
+      $this->year = '0000';
+    }
+  }
 
 
   /**
@@ -133,13 +133,15 @@ class reg_invoices extends Sale {
    */
   function calculateNumber() {
     global $sugar_config;
-
+    
     // Para el caso en el que la facturación se reinicie anualmente
     $anual = ($sugar_config['fact_restart_number']) ? " AND year = $this->year" : '';
     
     $sql = " select MAX(number) number".
       " from reg_invoices ".
-      " where deleted=0 AND reg_invoices_type = '$this->reg_invoices_type' AND id <> '$this->id' $anual";
+      " where deleted=0 AND reg_invoices_type = '$this->reg_invoices_type' ".
+      "   AND issuer_id = '$this->issuer_id' " .
+      "   AND id <> '$this->id' $anual";
       
     $result = $this->db->query($sql);
     $row = $this->db->fetchByAssoc($result);
