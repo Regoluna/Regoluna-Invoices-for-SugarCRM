@@ -25,7 +25,7 @@ $admin_option_defs[] = array(
   'reg_invoices',
   'LBL_FACT_CONFIG',
   'LBL_FACT_CONFIG_DESC',
-  './index.php?module=Configurator&action=reg_invoices_Config',
+  './index.php?module=reg_invoices&action=Config',
 );
 
 // Dependencies checker

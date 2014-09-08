@@ -144,16 +144,6 @@ $installdefs = array (
     ),
 
     array (
-      'from' => '<basepath>/custom/modules/Configurator/reg_invoices_Config.php',
-      'to' => 'custom/modules/Configurator/reg_invoices_Config.php',
-    ),
-
-    array (
-      'from' => '<basepath>/custom/modules/Configurator/tpls/reg_invoices_Config.tpl',
-      'to' => 'custom/modules/Configurator/tpls/reg_invoices_Config.tpl',
-    ),
-
-    array (
       'from' => '<basepath>/custom/modules/Administration/reg_invoices_Check.php',
       'to' => 'custom/modules/Administration/reg_invoices_Check.php',
     ),
@@ -188,15 +178,6 @@ $installdefs = array (
       'to' => 'custom/Extension/modules/Accounts/Ext/Language/es_es.reg_invoices.php',
     ),
 
-    array (
-      'from' => '<basepath>/custom/Extension/modules/Configurator/Ext/Language/en_us.reg_invoices.php',
-      'to' => 'custom/Extension/modules/Configurator/Ext/Language/en_us.reg_invoices.php',
-    ),
-
-    array (
-      'from' => '<basepath>/custom/Extension/modules/Configurator/Ext/Language/es_es.reg_invoices.php',
-      'to' => 'custom/Extension/modules/Configurator/Ext/Language/es_es.reg_invoices.php',
-    ),
     array (
       'from' => '<basepath>/custom/themes/default/images/Createreg_companies.gif',
       'to' => 'custom/themes/default/images/Createreg_companies.gif',
