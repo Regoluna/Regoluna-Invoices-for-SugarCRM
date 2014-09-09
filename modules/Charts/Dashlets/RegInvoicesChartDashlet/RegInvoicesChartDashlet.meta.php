@@ -13,9 +13,11 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  ********************************************************************************/
 global $app_strings, $current_language;
 
-$dashletMeta['RegInvoicesChartDashlet'] = array('title'       => 'LBL_TITLE',
-                                             'description' => 'LBL_TITLE',
-                                             'icon'        => 'themes/default/images/icon_reg_invoices_16.gif',
-                                             'module'      => 'reg_invoices',
-                                             'category'    => 'Charts');
-?>
+$dashletMeta['RegInvoicesChartDashlet'] = array(
+  'title'       => 'LBL_TITLE',
+  'description' => 'LBL_TITLE',
+  'icon'        => 'custom/themes/default/images/icon_reg_invoices_32.gif',
+  'module'      => 'reg_invoices',
+  'category'    => 'Charts'
+);
+
