@@ -61,9 +61,9 @@ class RegInvoicesChartDashlet extends DashletGenericChart
       $currency->retrieve($GLOBALS['current_user']->getPreference('currency'));
       $currency_symbol = $currency->symbol;
     }
-
+    
     $this->chartDefName = $this->which_chart[0];
-    //$chartDef = $this->chartDefs[$this->chartDefName];
+    
     $chartDef = array(
         'type' => 'code',
         'id' => 'Chart_invoices_by_month',
@@ -110,6 +110,7 @@ class RegInvoicesChartDashlet extends DashletGenericChart
   {
  
     $amountColumnName = ( $this->with_taxes == 1 )? 'amount' : 'total_base' ;
+    $issuerCondition = $this->getIssuerCondition();
     
     $query =  'SELECT '.
         '  reg_invoices.state AS state_in_chart,'.
@@ -120,9 +121,26 @@ class RegInvoicesChartDashlet extends DashletGenericChart
         'WHERE reg_invoices.date_closed >= DATE_FORMAT("'.$this->fcd_date_start.'", "%Y-%m-%d %H:%i:%s") '.
         '  AND reg_invoices.date_closed <= DATE_FORMAT("'.$this->fcd_date_end.'", "%Y-%m-%d %H:%i:%s") '.
         '  AND reg_invoices.deleted=0 AND reg_invoices_type=\'invoice\' '.
+        $issuerCondition.
         'GROUP BY state, DATE_FORMAT(reg_invoices.date_closed,"%Y-%m") ORDER BY m';
-
+        
+    $GLOBALS['log']->fatal( print_r($query, true) );
     return ($query);
+  }
+  
+  private function getIssuerCondition(){
+    if( is_array( $this->issuer_id ) && count($this->issuer_id) > 0 ){
+      
+      $list = array();
+      foreach( $this->issuer_id as $id ){
+        $list[] = "'$id'";
+      }
+      
+      return 'AND issuer_id IN (' . implode(',',$list) . ') ';
+      
+    }else{
+      return '';
+    }
   }
 
   /**
