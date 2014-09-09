@@ -1,32 +1,38 @@
 <?php
-$module_name = 'reg_invoices';
-$_module_name = 'reg_invoices';
-$searchdefs [$module_name] = 
-array (
+
+$searchdefs ['reg_invoices'] = array (
+  
+  'templateMeta' => array (
+    'maxColumns' => '4',
+    'widths' => array (
+      'label' => '5',
+      'field' => '20',
+    ),
+  ),
+  
   'layout' => array (
+    
     'basic_search' => array (
       'name',
       array(
         'name' => 'reg_invoices_type',
-        'displayParams' => array (
-            'size' => '3',
-          ),
+        'displayParams' => array ( 'size' => '3' ),
       ),
       array (
         'width' => '10%',
         'label' => 'LBL_ESTADO',
         'default' => true,
         'name' => 'state',
-        'displayParams' => array (
-            'size' => '4',
-          ),
+        'displayParams' => array ( 'size' => '4' ),
       ),
       array (
-        'name' => 'year',
-        'label' => 'LBL_YEAR',
+        'name' => 'issuer_id',
+        'label' => 'LBL_ISSUER',
+        'displayParams' => array ( 'size' => '3' ),
       ),
       
     ),
+    
     'advanced_search' => array (
       array (
         'name' => 'name',
@@ -56,11 +62,9 @@ array (
         'function' => 
         array (
           'name' => 'get_user_array',
-          'params' => 
-          array (
-            0 => false,
-          ),
+          'params' => array ( false ),
         ),
+        'displayParams' => array (  'size' => '3' ),
         'default' => true,
       ),
       array (
@@ -68,23 +72,25 @@ array (
         'label' => 'LBL_ESTADO',
         'default' => true,
         'name' => 'state',
+        'displayParams' => array (
+            'size' => '3',
+        ),
       ),
       array (
         'width' => '10%',
         'label' => 'LBL_TYPE',
         'default' => true,
         'name' => 'reg_invoices_type',
+        'displayParams' => array ( 'size' => '3' ),
+      ),
+      array (
+        'name' => 'issuer_id',
+        'label' => 'LBL_ISSUER',
+        'displayParams' => array ( 'size' => '3' ),
       ),
     ),
+    
   ),
-  'templateMeta' => 
-  array (
-    'maxColumns' => '4',
-    'widths' => 
-    array (
-      'label' => '5',
-      'field' => '20',
-    ),
-  ),
+  
 );
-?>
+
