@@ -7,7 +7,7 @@ function inicializarNumero(id){
 	autogen = document.getElementById(id + '_autogen');
 	autogenText = document.getElementById(id + '_autogenspan');
 	boton = document.getElementById(id + '_changeb');
-	if(trim(texto.value) != ""){
+	if(trim(texto.value) != "" && texto.value != 0 ){
 		textoNoEditable(texto);
 		ocultar(autogenText);
 		mostrar(boton);
