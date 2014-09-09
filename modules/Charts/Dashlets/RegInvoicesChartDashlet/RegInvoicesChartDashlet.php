@@ -35,6 +35,22 @@ class RegInvoicesChartDashlet extends DashletGenericChart
 
     parent::__construct($id,$options);
   }
+  
+  /**
+    * @see DashletGenericChart::displayOptions()
+    */
+  public function displayOptions() {
+    global $app_list_strings;
+    
+    // Function dropdowns are not well supported in Charts
+    // so we are creating a temporary list string.
+    $invoice = $this->getSeedBean()->field_defs['issuer_id']['options'] = 'reg_invoices_issuer_dom_tmp';
+    $app_list_strings['reg_invoices_issuer_dom_tmp'] = regInvoicesGetCompaniesDropdown();
+    
+    $config = parent::displayOptions();
+    unset($app_list_strings['reg_invoices_issuer_dom_tmp']);
+    return $config;    
+  }
 
   public function display()
   {

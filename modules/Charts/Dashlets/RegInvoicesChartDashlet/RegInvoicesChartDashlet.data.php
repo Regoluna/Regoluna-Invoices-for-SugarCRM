@@ -28,9 +28,15 @@ $dashletData['RegInvoicesChartDashlet']['searchFields'] = array(
         'vname' => 'LBL_DATE_END',
         'type'  => 'datepicker',
     ),
+    'issuer_id' => array(
+        'name'  => 'issuer_id',
+        'vname' => 'LBL_ISSUERS',
+        'type'  => 'enum',
+    ),
     'with_taxes' => array(
         'name'  => 'with_taxes',
         'vname' => 'LBL_AMOUNT_WITH_TAXES',
         'type'  => 'bool',
     ),
+    
 );
