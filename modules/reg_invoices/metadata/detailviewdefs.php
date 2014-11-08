@@ -14,12 +14,12 @@ array (
         array ( 'EDIT',
           'DUPLICATE',
           'DELETE',
-          array('customCode'=>
-                  '<input title="{$MOD.LBL_FACTURAE_TITLE}" accesskey="F" class="button" '.
-                  'onclick="this.form.action.value=\'XmlView\'; this.form.module.value=\'reg_invoices\';" '.
-                  'name="button" value="{$MOD.LBL_FACTURAE}" type="submit" '.
-                  '{if !($fields.numero.value > 0 && $fields.reg_invoices_type.value=="factura")}disabled style="color:#888;"{/if}>'
-          ),
+          //array('customCode'=>
+          //        '<input title="{$MOD.LBL_FACTURAE_TITLE}" accesskey="F" class="button" '.
+          //        'onclick="this.form.action.value=\'XmlView\'; this.form.module.value=\'reg_invoices\';" '.
+          //        'name="button" value="{$MOD.LBL_FACTURAE}" type="submit" '.
+          //        '{if !($fields.numero.value > 0 && $fields.reg_invoices_type.value=="factura")}disabled style="color:#888;"{/if}>'
+          //),
           
           array('customCode'=>
                 '<input title="{$MOD.LBL_GET_PDF_TITLE}" accesskey="M" class="button" '.
