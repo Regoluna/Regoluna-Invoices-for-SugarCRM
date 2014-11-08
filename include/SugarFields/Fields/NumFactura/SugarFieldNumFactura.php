@@ -19,34 +19,14 @@ class SugarFieldNumFactura extends SugarFieldBase {
     $this->ss->assign('textocheck', $mod_strings['LBL_AUTOGEN']);
     $this->ss->assign('textocambio', $mod_strings['LBL_CHANGE_BUTTON']);
     // Mark checked if Number field is empty
-    /*
-    echo "<pre>";
-    print_r($vardef);
-    echo "</pre>";
-    */
-    if( !$vardef['value'] || $vardef['value']=="" ){
+    if( empty($vardef['value']) ){
        $this->ss->assign('checked', 'CHECKED');
     }    
     return parent::getEditViewSmarty($parentFieldArray, $vardef, $displayParams, $tabindex);
   }
   
   public function formatField($rawField, $vardef){
-    
     return $rawField;
-//    
-//        // A null precision uses the user prefs / system prefs by default
-//        $precision = null;
-//        if ( isset($vardef['precision']) ) {
-//            $precision = $vardef['precision'];
-//        }
-//        
-//        if ( $rawField === '' || $rawField === NULL ) {
-//            return '';
-//        }
-//        return $rawField;
-//        return format_number($rawField,$precision,$precision);
-    }
+  }
   
 }
-
-?>
