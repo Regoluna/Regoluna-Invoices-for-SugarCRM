@@ -20,19 +20,19 @@ array (
                   'name="button" value="{$MOD.LBL_FACTURAE}" type="submit" '.
                   '{if !($fields.numero.value > 0 && $fields.reg_invoices_type.value=="factura")}disabled style="color:#888;"{/if}>'
           ),
-
+          
           array('customCode'=>
                 '<input title="{$MOD.LBL_GET_PDF_TITLE}" accesskey="M" class="button" '.
-                  'onclick="this.form.action.value=\'PdfView\'; this.form.module.value=\'reg_invoices\';" '.
+                  'onclick="window.open(\'index.php?module=reg_invoices&action=PdfView&record={$fields.id.value}\',\'_blank\');return false;" '.
                   'name="button" value="{$MOD.LBL_GET_PDF}" type="submit">'
           ),
-
-          array('customCode'=>
-                '<input title="{$MOD.LBL_PRINT_TITLE}" accesskey="P" class="button" '.
-                  'onclick="this.form.action.value=\'PrintPdf\'; this.form.module.value=\'reg_invoices\';" '.
-                  'name="button" value="{$MOD.LBL_PRINT}" type="submit">'
-          ),
-
+          
+          //array('customCode'=>
+          //      '<input title="{$MOD.LBL_PRINT_TITLE}" accesskey="P" class="button" '.
+          //        'onclick="window.open(\'index.php?module=reg_invoices&action=PrintPdf&record={$fields.id.value}\',\'_blank\');return false;" '.
+          //        'name="button" value="{$MOD.LBL_PRINT}" type="submit">'
+          //),
+          
         ),
       ),
       'maxColumns' => '2',
