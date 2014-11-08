@@ -6,9 +6,9 @@ $dictionary['reg_companies'] = array(
 	'duplicate_merge'=>true,
 	'optimistic_locking'=>true,
 	'unified_search'=>true,
-  
+
 	'fields'=>array (
-    'type' => 
+    'type' =>
     array (
       'required' => false,
       'name' => 'type',
@@ -32,7 +32,7 @@ $dictionary['reg_companies'] = array(
       'studio' => 'visible',
       'dependency' => false,
     ),
-    'name2' => 
+    'name2' =>
     array (
       'required' => false,
       'name' => 'name2',
@@ -52,7 +52,7 @@ $dictionary['reg_companies'] = array(
       'len' => '255',
       'size' => '20',
     ),
-    'name3' => 
+    'name3' =>
     array (
       'required' => false,
       'name' => 'name3',
@@ -72,7 +72,7 @@ $dictionary['reg_companies'] = array(
       'len' => '255',
       'size' => '20',
     ),
-    'nif' => 
+    'nif' =>
     array (
       'required' => true,
       'name' => 'nif',
@@ -92,7 +92,7 @@ $dictionary['reg_companies'] = array(
       'len' => '255',
       'size' => '20',
     ),
-    'residence' => 
+    'residence' =>
     array (
       'required' => false,
       'name' => 'residence',
@@ -116,7 +116,7 @@ $dictionary['reg_companies'] = array(
       'studio' => 'visible',
       'dependency' => false,
     ),
-    'billing_address_city' => 
+    'billing_address_city' =>
     array (
       'required' => false,
       'name' => 'billing_address_city',
@@ -136,7 +136,7 @@ $dictionary['reg_companies'] = array(
       'len' => 100,
       'size' => '20',
     ),
-    'billing_address_state' => 
+    'billing_address_state' =>
     array (
       'required' => false,
       'name' => 'billing_address_state',
@@ -156,7 +156,7 @@ $dictionary['reg_companies'] = array(
       'len' => 100,
       'size' => '20',
     ),
-    'billing_address_postalcode' => 
+    'billing_address_postalcode' =>
     array (
       'required' => false,
       'name' => 'billing_address_postalcode',
@@ -176,7 +176,7 @@ $dictionary['reg_companies'] = array(
       'len' => 20,
       'size' => '20',
     ),
-    'billing_address_country' => 
+    'billing_address_country' =>
     array (
       'required' => false,
       'name' => 'billing_address_country',
@@ -196,7 +196,7 @@ $dictionary['reg_companies'] = array(
       'len' => 100,
       'size' => '20',
     ),
-    'billing_address_street' => 
+    'billing_address_street' =>
     array (
       'required' => false,
       'name' => 'billing_address_street',
@@ -216,19 +216,57 @@ $dictionary['reg_companies'] = array(
       'len' => '255',
       'size' => '20',
     ),
-    
+
     'is_default' => array (
       'massupdate' => false,
       'name' => 'is_default',
       'vname' => 'LBL_IS_DEFAULT',
       'type' => 'bool',
     ),
-    
+
+    'file_mime_type' => array (
+      'name' => 'file_mime_type',
+      'vname' => 'LBL_FILE_MIME_TYPE',
+      'type' => 'varchar',
+      'len' => '100',
+      'comment' => 'Attachment MIME type',
+      'importable' => false,
+    ),
+    'file_url'=> array(
+      'name'=>'file_url',
+      'vname' => 'LBL_FILE_URL',
+      'type'=>'function',
+      'function_class'=>'UploadFile',
+      'function_name'=>'get_upload_url',
+      'function_params'=> array('$this'),
+      'source'=>'function',
+      'reportable'=>false,
+      'comment' => 'Path to file (can be URL)',
+      'importable' => false,
+    ),
+    'filename' => array (
+      'name' => 'filename',
+      'vname' => 'LBL_LOGO_IMAGE_FILE',
+      'type' => 'file',
+      'dbType' => 'varchar',
+      'len' => '255',
+      'reportable'=>true,
+      'comment' => 'File name associated with the company (attachment)',
+      'importable' => false,
+    ),
+
+    'uploadfile' => array (
+       'name'=>'uploadfile',
+       'vname' => 'LBL_FILE_UPLOAD',
+       'type' => 'file',
+       'source' => 'non-db',
+    ),
+
   ),
-  
+
 	'relationships'=>array (
   ),
-  
+
 );
 
 if (!class_exists('VardefManager')){

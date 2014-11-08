@@ -2,7 +2,7 @@
 
 $module_name = 'reg_companies';
 $viewdefs[$module_name]['DetailView'] = array(
-  
+
   'templateMeta' => array(
     'form' => array(
       'buttons'=>array('EDIT', 'DUPLICATE', 'DELETE', 'FIND_DUPLICATES' )
@@ -16,13 +16,22 @@ $viewdefs[$module_name]['DetailView'] = array(
   ),
 
   'panels' =>array (
-    
+
     'default' => array (
       array ( 'name', 'name2' ),
       array ( 'nif', 'name3'  ),
-      array ( 'description', 'is_default' ),
+      array ('is_default', null ),
+      array (
+        'description',
+        array(
+          'name' => 'filename',
+          'customCode' => '
+            <img style="max-width: 350px; width: 100%; max-height: 70px; width: auto;"
+                 src="index.php?entryPoint=download&id={$fields.id.value}&type=reg_companies"/>'
+        ),
+      ),
     ),
-    
+
     'lbl_billing_address_panel' => array (
       array(
         array (
@@ -38,11 +47,10 @@ $viewdefs[$module_name]['DetailView'] = array(
         ),
       ),
     ),
-    
+
     'lbl_facturae_panel' => array (
       array( 'residence',  'type' ),
     ),
-    
+
   ),
 );
-?>

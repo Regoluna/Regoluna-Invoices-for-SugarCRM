@@ -41,4 +41,5 @@ $mod_strings = array (
   'LBL_FACTURAE_PANEL' => 'Facturae options (Spain only)',
   'LBL_BILLING_ADDRESS_PANEL' => 'Biller address',
   'LBL_IS_DEFAULT' => 'Default',
+  'LBL_LOGO_IMAGE_FILE' => 'Logo image',
 );

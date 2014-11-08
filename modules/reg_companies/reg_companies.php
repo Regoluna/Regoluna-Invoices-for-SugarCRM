@@ -1,7 +1,7 @@
 <?PHP
 
 class reg_companies extends Basic {
-	
+
 	var $new_schema = true;
 	var $module_dir = 'reg_companies';
 	var $object_name = 'reg_companies';
@@ -36,20 +36,20 @@ class reg_companies extends Basic {
 	var $billing_address;
 	var $conditions;
 	var $is_default;
-	
-	function reg_companies(){	
+
+	function reg_companies(){
 		parent::Basic();
 	}
-	
+
 	function bean_implements($interface){
 		switch($interface){
 			case 'ACL': return true;
 		}
 		return false;
 	}
-	
+
 	function save( $check_notify = FALSE ){
-		
+
 		// You cannot remove default check directly
 		if( !$this->is_default
 			  && !empty($this->fetched_row['is_default'])
@@ -57,15 +57,15 @@ class reg_companies extends Basic {
 		){
 			$this->is_default = true;
 		}
-		
+
 		// Only one default company
 		if( $this->is_default && !$this->fetched_row['is_default'] ){
 			$this->db->query( 'UPDATE reg_companies SET is_default = 0' );
 		}
-		
+
 		parent::save( $check_notify );
 	}
-	
+
 	/**
 	 * Get list of available companies for Issuer dropdown
 	 */
@@ -79,7 +79,7 @@ class reg_companies extends Basic {
 		}
 		return $response;
 	}
-	
+
 	public function retrieveDefault(){
 		$sql = 'SELECT id FROM reg_companies WHERE deleted=0 AND is_default=1';
 		$result = $this->db->query( $sql );
@@ -88,5 +88,47 @@ class reg_companies extends Basic {
 			$this->retrieve( $row['id'] );
 		}
 	}
-	
+
+
+	function deleteAttachment($isduplicate="false"){
+
+		if($this->ACLAccess('edit')){
+			if($isduplicate=="true"){
+				return true;
+			}
+			$removeFile = "upload://{$this->id}";
+		}
+
+		if(!empty($this->doc_type) && !empty($this->doc_id)){
+      $document = ExternalAPIFactory::loadAPI($this->doc_type);
+	    $response = $document->deleteDoc($this);
+      $this->doc_type = '';
+      $this->doc_id = '';
+      $this->doc_url = '';
+      $this->filename = '';
+      $this->file_mime_type = '';
+		}
+
+		if(file_exists($removeFile)) {
+			if(!unlink($removeFile)) {
+				$GLOBALS['log']->error("*** Could not unlink() file: [ {$removeFile} ]");
+			}else{
+				$this->filename = '';
+				$this->file_mime_type = '';
+				$this->file = '';
+				$this->save();
+				return true;
+			}
+		} else {
+			$this->filename = '';
+			$this->file_mime_type = '';
+			$this->file = '';
+			$this->doc_id = '';
+			$this->save();
+			return true;
+		}
+		return false;
+	}
+
+
 }

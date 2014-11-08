@@ -45,4 +45,5 @@ $mod_strings = array (
   'LBL_FACTURAE_PANEL' => 'Opciones Facturae (solo aplicable en España)',
   'LBL_BILLING_ADDRESS_PANEL' => 'Dirección de facturador',
   'LBL_IS_DEFAULT' => 'Por defecto',
+  'LBL_LOGO_IMAGE_FILE' => 'Imagen logotipo',
 );
