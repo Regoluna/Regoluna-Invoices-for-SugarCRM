@@ -63,7 +63,7 @@ abstract class InvoiceView extends SugarView{
     $this->buyerInfo = array(
       'PersonTypeCode'=>'J',  // @todo Introducir el.type.de cuenta en "Cliente" según Facturae
       'ResidenceTypeCode'=>'R',  // @todo Introducir el.type.de residencia en "Cliente" según Facturae
-      'TaxIdentificationNumber'=> ($account->$nif_field)?$account->$nif_field:'000000',
+      'TaxIdentificationNumber'=> !empty($account->$nif_field)?$account->$nif_field:'000000',
       'CorporateName'=>$account->name,
       'Address'=>$account->billing_address_street,
       'PostCode'=>($account->billing_address_postalcode)?$account->billing_address_postalcode:'00000',
@@ -156,7 +156,7 @@ abstract class InvoiceView extends SugarView{
     }
 
     // Si no tiene.retention.por item, aplicamos el general ( Si existe; es opcional )
-    if( $row['retention']>0 && ($row['retention'] != $this->bean->retention) ) {
+    if($row['retention']>0 && ($row['retention'] != $this->bean->retention) ) {
       $item['retention']=array(
         'TaxRate'=>$this->num($row['retention'],'TaxRate'),
         'TaxableBase'=>$this->num($row['total_base']),
@@ -164,7 +164,7 @@ abstract class InvoiceView extends SugarView{
         'TaxTypeCode'=>'04',
       );
     }else{
-      if($this->bean->retention){
+      if(!empty($this->bean->retention)){
         $item['retention']=array(
           'TaxRate'=>$this->num($this->bean->retention,'TaxRate'),
           'TaxableBase'=>$this->num($row['total_base']),
@@ -178,7 +178,7 @@ abstract class InvoiceView extends SugarView{
     $this->AddToTaxes($item);
 
     // Si el item tiene retención, lo añadimos a la lista de impuestos retenidos de la factura
-    if($item['retention']) $this->AddToTaxesWithheld($item['retention']);
+    if( !empty($item['retention'])) $this->AddToTaxesWithheld($item['retention']);
 
     // Finalmente, añadimos el nuevo Item Creado al Array
     $this->infoItems[] = $item;
@@ -190,9 +190,13 @@ abstract class InvoiceView extends SugarView{
     $index=$tax['TaxTypeCode'].'-'.$tax['TaxRate'];
     $this->infoTaxes[$index]['TaxTypeCode']=$tax['TaxTypeCode'];
     $this->infoTaxes[$index]['TaxRate']=$tax['TaxRate'];
-    $this->infoTaxes[$index]['TaxableBase']=$this->num($tax['TaxableBase']+$this->infoTaxes[$index]['TaxableBase']);
-    $this->infoTaxes[$index]['TaxAmount']=$this->num($tax['TaxAmount']+$this->infoTaxes[$index]['TaxAmount']);
     $this->infoTaxes[$index]['TaxTypeName']=$app_list_strings['reg_tax_type_dom'][$tax['TaxTypeCode']];
+    
+    if( !empty($tax['TaxableBase']) && empty($this->infoTaxes[$index]['TaxableBase']) ) $this->infoTaxes[$index]['TaxableBase'] = 0;
+    $this->infoTaxes[$index]['TaxableBase']=$this->num($tax['TaxableBase']+$this->infoTaxes[$index]['TaxableBase']);
+    
+    if( !empty($tax['TaxAmount']) && empty($this->infoTaxes[$index]['TaxAmount']) ) $this->infoTaxes[$index]['TaxAmount'] = 0;
+    $this->infoTaxes[$index]['TaxAmount']=$this->num($tax['TaxAmount']+$this->infoTaxes[$index]['TaxAmount']);
 
     $this->infoInvoice['TotalTaxOutputs']=$this->num($this->infoInvoice['TotalTaxOutputs'] + $tax['TaxAmount'],'TotalTaxOutputs');
 

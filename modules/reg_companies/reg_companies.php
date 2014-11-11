@@ -28,11 +28,12 @@ class reg_companies extends Basic {
 	var $name3;
 	var $nif;
 	var $residence;
-	var $address_city;
-	var $address_state;
-	var $address_postalcode;
-	var $address_country;
-	var $address;
+	var $billing_address_city;
+	var $billing_address_street;
+	var $billing_address_state;
+	var $billing_address_postalcode;
+	var $billing_address_country;
+	var $billing_address;
 	var $conditions;
 	var $is_default;
 	

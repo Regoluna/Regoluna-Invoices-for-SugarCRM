@@ -76,7 +76,8 @@ class reg_invoicesViewPdf extends InvoiceView{
       if( $conditionsText ) $conditionsText .= "<br>";
       $conditionsText .= nl2br($this->issuer->description);
     }
-    $this->ss->assign("Condiciones",from_html($conditionsText));
+    
+    if(!empty($conditionsText)) $this->ss->assign("Condiciones",from_html($conditionsText));
     
     // Logo (definir en config.php)
     $ruta_logo = $sugar_config['fact_path_to_logo'];
@@ -90,7 +91,7 @@ class reg_invoicesViewPdf extends InvoiceView{
 
     // Lineas al pie de página (Parte derecha)
     // definir en config.php
-    if($sugar_config['fact_seller_info']['invoice_footer']){
+    if(!empty($sugar_config['fact_seller_info']['invoice_footer'])){
       $this->ss->assign("Pie",$sugar_config['fact_seller_info']['invoice_footer']);
     }
 
@@ -183,7 +184,7 @@ class reg_invoicesViewPdf extends InvoiceView{
     $contenido=utf8_decode( $this->ss->fetch( $ficheroPlantilla ) );
     $html2pdf = new HTML2PDF('P','A4','es', array(0, 0, 0, 0));
     $html2pdf->pdf->SetDisplayMode('fullpage');
-    if(strtolower($_REQUEST['action'])=='printpdf') $html2pdf->pdf->IncludeJS("print(true);");
+    if( !empty($_REQUEST['action']) && strtolower($_REQUEST['action'])=='printpdf') $html2pdf->pdf->IncludeJS("print(true);");
     $html2pdf->WriteHTML($contenido);
     
     if( !$fileInServer ){
@@ -196,7 +197,7 @@ class reg_invoicesViewPdf extends InvoiceView{
   }
 
   function getUnit($unit){
-    if($this->units[$unit]) return $this->units[$unit];
+    if( !empty($this->units[$unit]) ) return $this->units[$unit];
     return $unit;
   }
 
@@ -275,7 +276,7 @@ class reg_invoicesViewPdf extends InvoiceView{
             $this->infoItems[$t][$i]=$this->format_to_pdf($value);
         }
         // Las.retention.s dentro de cada item
-        if(is_array($this->infoItems[$t]['retention']))
+        if( !empty($this->infoItems[$t]['retention']) )
         foreach($this->infoItems[$t]['retention'] as $r=>$valuer){
           if( is_string($valuer) && preg_match('/[0-9]*\.[0-9][0-9]/',$valuer) ){
               $this->infoItems[$t]['retention'][$r]=$this->format_to_pdf($valuer);
