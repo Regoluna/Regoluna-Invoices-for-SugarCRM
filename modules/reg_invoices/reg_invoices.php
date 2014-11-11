@@ -283,6 +283,8 @@ class reg_invoices extends Sale {
     $saveToFile = trim($sugar_config['upload_dir'], ' /') . "/$note->id";
     $view->display( "$saveToFile.pdf" );
     rename( "$saveToFile.pdf", $saveToFile );
+		
+		return $note;
   }
 
 }
