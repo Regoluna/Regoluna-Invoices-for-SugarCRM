@@ -30,6 +30,8 @@ class reg_invoices extends Sale {
   var $modified_by_name;
   var $created_by;
   var $created_by_name;
+  var $issuer;
+  var $issuer_id;
   var $description;
   var $deleted;
   var $created_by_link;
@@ -57,6 +59,8 @@ class reg_invoices extends Sale {
   var $total_retention;
   var $output_tax;
   var $currency_id;
+	var $year;
+	var $conditions;
   
   function reg_invoices() {
     parent::Sale();
@@ -283,6 +287,8 @@ class reg_invoices extends Sale {
     $saveToFile = trim($sugar_config['upload_dir'], ' /') . "/$note->id";
     $view->display( "$saveToFile.pdf" );
     rename( "$saveToFile.pdf", $saveToFile );
+		
+		return $note;
   }
 
 }
