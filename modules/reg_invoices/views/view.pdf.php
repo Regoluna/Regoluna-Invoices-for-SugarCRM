@@ -66,7 +66,7 @@ class reg_invoicesViewPdf extends InvoiceView{
     if(trim($this->bean->description)){
       $this->ss->assign("Descripcion",from_html($this->bean->description));
     }
-    
+
     // General conditions
     if(trim($this->bean->conditions)){
       $conditionsText = $this->bean->conditions;
@@ -76,17 +76,22 @@ class reg_invoicesViewPdf extends InvoiceView{
       if( $conditionsText ) $conditionsText .= "<br>";
       $conditionsText .= nl2br($this->issuer->description);
     }
-    
+
     if(!empty($conditionsText)) $this->ss->assign("Condiciones",from_html($conditionsText));
-    
-    // Logo (definir en config.php)
-    $ruta_logo = $sugar_config['fact_path_to_logo'];
-    if($ruta_logo && file_exists($ruta_logo) ){
-      $this->ss->assign("Logo",$ruta_logo);
-    }else if(file_exists('themes/Sugar/images/company_logo.png') ){
-      $this->ss->assign("Logo",'themes/Sugar/images/company_logo.png');
-    }else if(file_exists('themes/default/images/company_logo.png') ){
-      $this->ss->assign("Logo",'themes/default/images/company_logo.png');
+
+    $issuerLogoImage = $sugar_config['upload_dir'] .'/' . $this->issuer->id;
+    if( !empty($this->issuer->filename) && file_exists($issuerLogoImage) ){
+      $this->ss->assign("Logo", $issuerLogoImage );
+    }else{
+      // Logo (definir en config.php)
+      $ruta_logo = $sugar_config['fact_path_to_logo'];
+      if($ruta_logo && file_exists($ruta_logo) ){
+        $this->ss->assign("Logo",$ruta_logo);
+      }else if(file_exists('themes/Sugar/images/company_logo.png') ){
+        $this->ss->assign("Logo",'themes/Sugar/images/company_logo.png');
+      }else if(file_exists('themes/default/images/company_logo.png') ){
+        $this->ss->assign("Logo",'themes/default/images/company_logo.png');
+      }
     }
 
     // Lineas al pie de página (Parte derecha)
@@ -186,14 +191,14 @@ class reg_invoicesViewPdf extends InvoiceView{
     $html2pdf->pdf->SetDisplayMode('fullpage');
     if( !empty($_REQUEST['action']) && strtolower($_REQUEST['action'])=='printpdf') $html2pdf->pdf->IncludeJS("print(true);");
     $html2pdf->WriteHTML($contenido);
-    
+
     if( !$fileInServer ){
       ob_clean();
       $html2pdf->Output('Factura.pdf');
     }else{
       $html2pdf->Output($fileInServer , 'F');
     }
-    
+
   }
 
   function getUnit($unit){
