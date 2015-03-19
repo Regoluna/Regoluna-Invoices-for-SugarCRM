@@ -77,6 +77,13 @@ class reg_invoicesViewPdf extends InvoiceView{
       $conditionsText .= nl2br($this->issuer->description);
     }
 
+    // Footer text Issuer dependent
+    if(!empty($this->issuer->footer_text)){
+      $this->ss->assign("issuer_footer", $this->issuer->footer_text );
+    }else{
+      $this->ss->assign("issuer_footer", 'Generated with Regoluna Invoices' );
+    }
+
     if(!empty($conditionsText)) $this->ss->assign("Condiciones",from_html($conditionsText));
 
     $issuerLogoImage = $sugar_config['upload_dir'] .'/' . $this->issuer->id;

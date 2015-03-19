@@ -42,4 +42,5 @@ $mod_strings = array (
   'LBL_BILLING_ADDRESS_PANEL' => 'Biller address',
   'LBL_IS_DEFAULT' => 'Default',
   'LBL_LOGO_IMAGE_FILE' => 'Logo image',
+  'LBL_FOOTER' => 'Footer text (PDF)',
 );

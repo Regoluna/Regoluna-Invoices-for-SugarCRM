@@ -21,6 +21,7 @@ $viewdefs[$module_name]['DetailView'] = array(
       array ( 'name', 'name2' ),
       array ( 'nif', 'name3'  ),
       array ('is_default', null ),
+      array ('footer_text' ),
       array (
         'description',
         array(

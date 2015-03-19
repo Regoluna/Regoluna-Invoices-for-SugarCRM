@@ -1,23 +1,23 @@
 <style type="text/css">
 <!--
 	table.page_header {
-	  width: 100%; 
-	  border: none; 
-	  background-color: #FFF; 
-	  border-bottom: solid 0.2mm #888; 
-	  padding: 15mm; 
+	  width: 100%;
+	  border: none;
+	  background-color: #FFF;
+	  border-bottom: solid 0.2mm #888;
+	  padding: 15mm;
 	  padding-bottom: 0mm; }
 	table.page_footer {
-	  width: 100%; 
-	  border: none; 
-	  background-color: #EEEEEE; 
-	  border-top: solid 1mm #DDDDDD; 
+	  width: 100%;
+	  border: none;
+	  background-color: #EEEEEE;
+	  border-top: solid 1mm #DDDDDD;
 	  padding: 5mm; }
 	div.note {
 	  border: solid 0.8mm #DDDDDD;
-	  background-color: #EEEEEE; 
-	  padding: 2mm; 
-	  border-radius: 2mm; 
+	  background-color: #EEEEEE;
+	  padding: 2mm;
+	  border-radius: 2mm;
 	  width: 100%; }
 	ul.main { width: 95%; list-style-type: square; }
 	ul.main li { padding-bottom: 2mm; }
@@ -31,7 +31,7 @@
 	  font-size:80%;
 	  color:#222;
 	  text-align:left;
-	  font-style:italic; 
+	  font-style:italic;
 	  padding-left:5mm;
 	  padding-right:5mm;
 	}
@@ -54,8 +54,7 @@
 		<table class="page_footer">
 			<tr>
 				<td style="width: 33%; text-align: left; vertical-align: bottom;">
-					<span style="font-size:60%; color:#BBB;">Factura generada desde SugarCRM<br/>
-					Módulo de facturas de Regoluna.com</span>
+					<span style="font-size:60%; color:#BBB;">{{$issuer_footer}}</span>
 				</td>
 				<td style="width: 34%; text-align: center">
 					Página [[page_cu]]/[[page_nb]]
@@ -70,7 +69,7 @@
 			</tr>
 		</table>
 	</page_footer>
-	
+
 	<!-- Información general de la factura -->
 	<table style="width:100%;">
 	  <tr><td style="text-align: left; vertical-align: top;width:60%;">
@@ -108,12 +107,12 @@
     <tr><td colspan="2" style="border-bottom: solid 0.2mm #000;"></td></tr>
 	</table>
 	<p></p>
-	
+
   <!-- Descripción de la factura -->
   {{if isset($Descripcion)}}
   <div>{{$Descripcion}}</div><br/>
   {{/if}}
-  
+
 	<!-- Lista de Items -->
 	<table style="width:100%" class="detalle">
 	  <thead>
@@ -142,14 +141,14 @@
       {{if isset($ImpuestosPorLinea) }}<td>{{$l.TaxTypeName}} {{$l.TaxRate}}%</td>{{/if}}
 {{*   {{if isset($RetencionPorLinea) || isset($ImpuestosPorLinea) }}<td>{{$l.GrossAmount}} </td>{{/if}}   *}}
     </tr>
-    
+
       <tr><td colspan="{{$Cols}}" class="descripcion">
       {{if isset($l.AdditionalLineItemInformation) }} {{$l.AdditionalLineItemInformation|nl2br}} {{/if}}
-      </td></tr> 
-    
-    
+      </td></tr>
+
+
     {{/foreach}}
- 
+
     <!-- Totales -->
     <tr>
       <td colspan="{{$Cols}}" style="border-bottom: solid 0.2mm #000;"></td>
@@ -157,12 +156,12 @@
     <tr>
       <td colspan="{{if isset($HayDescuento) }} 4 {{else}} 3 {{/if}}" style="text-align: right;font-weight: bold;">Base imponible:</td>
       <td style="text-align: right;font-weight: bold;">{{$i.TotalGrossAmount}} &euro;</td>
-    </tr>    
-    
+    </tr>
+
     <tr>
       <td colspan="{{$Cols}}">&nbsp;</td>
     </tr>
-    
+
     <!-- Impuestos.output_tax. ( IVA y similares ) -->
     {{foreach from=$taxes item=t}}
     <tr>
@@ -170,7 +169,7 @@
       <td style="text-align: right;"> +{{$t.TaxAmount}} &euro;</td>
     </tr>
     {{/foreach}}
-    
+
     <!-- Impuestos retenidos ( IRPF ) -->
     {{if isset($taxeswithheld)}}
 	    {{foreach from=$taxeswithheld item=w}}
@@ -180,7 +179,7 @@
 	    </tr>
 	    {{/foreach}}
     {{/if}}
-    
+
     <tr>
       <td colspan="{{$Cols}}" style="border-bottom: solid 0.2mm #000;">&nbsp;</td>
     </tr>
@@ -189,10 +188,10 @@
       <td style="text-align: right;font-weight: bold;">{{$i.Total}} &euro;</td>
     </tr>
 	</table>
-	
+
 	<!-- Condiciones generales -->
 	{{if isset($Condiciones)}}
   <br/><div class="note">{{$Condiciones}}</div>
   {{/if}}
-  
+
 </page>

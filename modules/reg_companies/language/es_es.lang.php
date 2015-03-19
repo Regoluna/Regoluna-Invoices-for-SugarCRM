@@ -46,4 +46,5 @@ $mod_strings = array (
   'LBL_BILLING_ADDRESS_PANEL' => 'Dirección de facturador',
   'LBL_IS_DEFAULT' => 'Por defecto',
   'LBL_LOGO_IMAGE_FILE' => 'Imagen logotipo',
+  'LBL_FOOTER' => 'Texto para el pie (PDF)',
 );

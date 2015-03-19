@@ -92,6 +92,28 @@ $dictionary['reg_companies'] = array(
       'len' => '255',
       'size' => '20',
     ),
+
+		'footer_text' =>
+		array (
+			'required' => true,
+			'name' => 'footer_text',
+			'vname' => 'LBL_FOOTER',
+			'type' => 'varchar',
+			'massupdate' => 0,
+			'no_default' => false,
+			'comments' => '',
+			'help' => '',
+			'importable' => 'true',
+			'duplicate_merge' => 'disabled',
+			'duplicate_merge_dom_value' => '0',
+			'audited' => false,
+			'reportable' => true,
+			'unified_search' => false,
+			'merge_filter' => 'disabled',
+			'len' => '400',
+			'size' => '20',
+		),
+
     'residence' =>
     array (
       'required' => false,
