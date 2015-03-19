@@ -95,7 +95,7 @@ $dictionary['reg_companies'] = array(
 
 		'footer_text' =>
 		array (
-			'required' => true,
+			'required' => false,
 			'name' => 'footer_text',
 			'vname' => 'LBL_FOOTER',
 			'type' => 'varchar',
