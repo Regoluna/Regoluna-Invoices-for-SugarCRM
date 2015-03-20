@@ -20,19 +20,19 @@ array (
           //        'name="button" value="{$MOD.LBL_FACTURAE}" type="submit" '.
           //        '{if !($fields.numero.value > 0 && $fields.reg_invoices_type.value=="factura")}disabled style="color:#888;"{/if}>'
           //),
-          
+
           array('customCode'=>
                 '<input title="{$MOD.LBL_GET_PDF_TITLE}" accesskey="M" class="button" '.
                   'onclick="window.open(\'index.php?module=reg_invoices&action=PdfView&record={$fields.id.value}\',\'_blank\');return false;" '.
                   'name="button" value="{$MOD.LBL_GET_PDF}" type="submit">'
           ),
-          
+
           //array('customCode'=>
           //      '<input title="{$MOD.LBL_PRINT_TITLE}" accesskey="P" class="button" '.
           //        'onclick="window.open(\'index.php?module=reg_invoices&action=PrintPdf&record={$fields.id.value}\',\'_blank\');return false;" '.
           //        'name="button" value="{$MOD.LBL_PRINT}" type="submit">'
           //),
-          
+
         ),
       ),
       'maxColumns' => '2',
@@ -78,7 +78,8 @@ array (
             'type' => 'NumFactura',
             'label' => 'LBL_NUMERO',
             'displayParams' => array (
-              'show_year' => $GLOBALS['sugar_config']['fact_restart_number'],
+              'show_year' => ($GLOBALS['sugar_config']['fact_restart_number'] == 1),
+              'show_prefix' => ($GLOBALS['sugar_config']['fact_restart_number'] == 2),
             ),
           ),
           1 =>

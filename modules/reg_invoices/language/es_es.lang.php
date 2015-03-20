@@ -119,7 +119,7 @@ $mod_strings = array (
   'LBL_ESTADO' => 'Estado',
   'LBL_ACCOUNT' => 'Cuenta',
   'LBL_YEAR' => 'Año',
-  
+
   'LBL_ITEMS_SUBPANEL' => 'Items',
   'LBL_ITEMS' => 'Items',
 
@@ -158,8 +158,11 @@ $mod_strings['LBL_FACT_CONF_TITLE'] = 'Configuración de facturas';
 $mod_strings['LBL_INVOICE_OPTIONS'] = 'Opciones de factura';
 $mod_strings['LBL_ACCOUNT_NIF_FIELD'] = 'Campo NIF/CIF en cuentas';
 $mod_strings['LBL_ACCOUNT_NIF_FIELD_DESC'] = 'Indica que campo de cuentas guarda el identificador fiscal del cliente';
-$mod_strings['LBL_RESTART_NUMBERS'] = 'Numeración anual';
-$mod_strings['LBL_RESTART_NUMBERS_DESC'] = 'Indica si debe reiniciarse el contador de número de factura cada año';
+$mod_strings['LBL_RESTART_NUMBERS'] = 'Reiniciar numeración';
+$mod_strings['LBL_RESTART_NUMBERS_DESC'] = 'Indica si debe reiniciarse el contador de número de factura.';
+$mod_strings['LBL_RESTART_CONTINUOUS'] = 'Continuo. Sin reinicio.';
+$mod_strings['LBL_RESTART_YEARLY'] = 'Anual ( YYYY-N ) ';
+$mod_strings['LBL_RESTART_DAILY'] = 'Diario ( YYYMMDD-N )';
 
 $mod_strings['LBL_PATH_TO_LOGO'] = 'Ruta al logo';
 $mod_strings['LBL_PATH_TO_LOGO_DESC'] = 'Ruta donde se guarda la imagen que se usará como logo en las facturas PDF.<br>(Por defecto "themes/Sugar/images/company_logo.png")';
@@ -170,4 +173,3 @@ $mod_strings['LBL_GENERAL_CONDITIONS_DESC'] = 'Permite indicar unas condiciones 
 $mod_strings['LBL_DEFAULT_TAX_TYPE'] = 'Tipo de impuesto por defecto';
 $mod_strings['LBL_DEFAULT_TAX'] = 'Porcentaje de impuesto por defecto';
 $mod_strings['LBL_DEFAULT_RETENTION'] = 'Porcentaje de retención por defecto';
-

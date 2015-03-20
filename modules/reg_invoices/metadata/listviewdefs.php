@@ -13,7 +13,7 @@ array (
     'width' => '1%',
     'label' => 'LBL_NUMERO_LIST',
     'default' => true,
-    'related_fields' => array('year'),
+    'related_fields' => array('year','prefix'),
     'type' => 'NumFactura',
   ),
   'NAME' =>

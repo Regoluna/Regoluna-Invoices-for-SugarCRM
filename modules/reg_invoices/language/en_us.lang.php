@@ -155,8 +155,12 @@ $mod_strings['LBL_FACT_CONF_TITLE'] = 'Invoice Configuration';
 $mod_strings['LBL_INVOICE_OPTIONS'] = 'Invoice Options';
 $mod_strings['LBL_ACCOUNT_NIF_FIELD'] = 'Tax identification number field in Accounts';
 $mod_strings['LBL_ACCOUNT_NIF_FIELD_DESC'] = 'Select one field from Accounts to be treated as Tax Number';
-$mod_strings['LBL_RESTART_NUMBERS'] = 'Yearly numbering';
-$mod_strings['LBL_RESTART_NUMBERS_DESC'] = 'Reset invoice numbering each year.';
+$mod_strings['LBL_RESTART_NUMBERS'] = 'Restart numbering';
+$mod_strings['LBL_RESTART_NUMBERS_DESC'] = 'Reset invoice numbering.<br><strong></strong>';
+$mod_strings['LBL_RESTART_CONTINUOUS'] = 'Continuous. No restart';
+$mod_strings['LBL_RESTART_YEARLY'] = 'Yearly ( YYYY-N ) ';
+$mod_strings['LBL_RESTART_DAILY'] = 'Daily ( YYYMMDD-N )';
+
 
 $mod_strings['LBL_PATH_TO_LOGO'] = 'Path to logo';
 $mod_strings['LBL_PATH_TO_LOGO_DESC'] = 'Where is logo image for PDFs<br>(By default "themes/Sugar/images/company_logo.png")';
@@ -167,4 +171,3 @@ $mod_strings['LBL_GENERAL_CONDITIONS_DESC'] = 'General conditions default value 
 $mod_strings['LBL_DEFAULT_TAX_TYPE'] = 'Default tax type';
 $mod_strings['LBL_DEFAULT_TAX'] = 'Default tax';
 $mod_strings['LBL_DEFAULT_RETENTION'] = 'Default retention';
-

@@ -19,7 +19,7 @@ class reg_invoices extends Sale {
 	var $object_name = 'reg_invoices';
 	var $table_name = 'reg_invoices';
 	var $importable = false;
-  
+
 	var $disable_row_level_security = true ; // to ensure that modules created and deployed under CE will continue to function under team security if the instance is upgraded to PRO
 
   var $id;
@@ -61,11 +61,11 @@ class reg_invoices extends Sale {
   var $currency_id;
 	var $year;
 	var $conditions;
-  
+
   function reg_invoices() {
     parent::Sale();
   }
-  
+
   function bean_implements($interface){
 		switch($interface){
 			case 'ACL': return true;
@@ -79,13 +79,13 @@ class reg_invoices extends Sale {
   }
 
   function save($check_notify = FALSE) {
-    
+
     if( empty( $_REQUEST['duplicateSave'] ) || $_REQUEST['duplicateSave'] === 'false' ){
       $this->calculateTotal();
     }
-    
+
     if( !is_numeric($this->year) ) $this->calculateYear();
-    
+
     // Auto-generate invoice number.
     if ( !empty($_POST['number_autogen']) && $_POST['number_autogen'] == 1 &&
          ( $this->reg_invoices_type !='invoice' || ($this->state == 'invoice_emitted' || $this->state == 'invoice_paid') )
@@ -95,22 +95,22 @@ class reg_invoices extends Sale {
 
     // echo "Antes de guardar - Si no esta formateado, lo hacemos<br/>";
     if(!$this->number_formatting_done) $this->format_all_fields();
-    
+
     if( empty($this->number) ) $this->number = '';
 
     // No usamos el campo 'amount_usdollar' sin embargo, su definición por defecto puede dar problemas
     $this->field_defs['amount_usdollar']['disable_num_format']=0; // corrige un comportamiento inadecuado
-        
+
     parent::save($check_notify);
-    
+
     // If you are duplicating an invoice
     if( !empty( $_REQUEST['duplicateSave'] ) && $_REQUEST['duplicateSave'] !== 'false' ){
       $this->duplicateItemsFromInvoiceId( $_REQUEST['duplicateId'] );
-      
+
       $_REQUEST['duplicateSave'] = 'false'; // Prevent loop
       $this->save();
     }
-  
+
   }
 
   /**
@@ -118,9 +118,8 @@ class reg_invoices extends Sale {
    */
   private function calculateYear(){
     global $timedate;
-    $cierre = $timedate->to_db($this->date_closed);
     $dateParts = explode('-', $timedate->to_db($this->date_closed));
-    
+
     if (is_numeric($dateParts[0])) {
       $this->year = $dateParts[0];
     } else {
@@ -137,16 +136,25 @@ class reg_invoices extends Sale {
    */
   function calculateNumber() {
     global $sugar_config;
-    
+
+    // Calcule diary numbering prefix.
+    $this->calculateNumberingPrefix();
+
     // Para el caso en el que la facturación se reinicie anualmente
-    $anual = ($sugar_config['fact_restart_number']) ? " AND year = $this->year" : '';
-    
+    $restartConditions = '';
+    $restartNumbering = $sugar_config['fact_restart_number'];
+    if( $restartNumbering == 2 ){
+      $restartConditions =  " AND prefix = '$this->prefix' ";
+    }elseif( $restartNumbering == 1 || $restartNumbering === true ){
+      $restartConditions =  " AND year = $this->year";
+    }
+
     $sql = " select MAX(number) number".
       " from reg_invoices ".
       " where deleted=0 AND reg_invoices_type = '$this->reg_invoices_type' ".
       "   AND issuer_id = '$this->issuer_id' " .
-      "   AND id <> '$this->id' $anual";
-      
+      "   AND id <> '$this->id' $restartConditions";
+
     $result = $this->db->query($sql);
     $row = $this->db->fetchByAssoc($result);
     if ($row['number']) {
@@ -156,7 +164,10 @@ class reg_invoices extends Sale {
     }
   }
 
-
+  function calculateNumberingPrefix(){
+    global $timedate;
+    $this->prefix = str_replace('-', '', $timedate->to_db_date($this->date_closed));
+  }
 
   /**
    *
@@ -239,16 +250,24 @@ class reg_invoices extends Sale {
    */
   function fill_in_additional_list_fields() {
     global $sugar_config;
-    if ($sugar_config['fact_restart_number'] && $this->year && $this->number) {
-      $this->number = "{$this->year}/{$this->number}";
+    $restartConditions = $sugar_config['fact_restart_number'];
+
+    if( !empty( $this->number) ){
+
+      if( $restartConditions == 2 && !empty( $this->prefix ) ){
+        $this->number = "{$this->prefix}/{$this->number}";
+      }elseif( $restartConditions == 1 && !empty( $this->year ) ){
+        $this->number = "{$this->year}/{$this->number}";
+      }
     }
+
   }
-  
+
   protected function duplicateItemsFromInvoiceId( $id ){
-        
+
     $previousInvoice = new reg_invoices();
     $previousInvoice->retrieve($id);
-    
+
     $previousInvoice->load_relationship('items');
     $this->load_relationship('items');
 
@@ -259,18 +278,18 @@ class reg_invoices extends Sale {
       $this->items->add( $item->id );
     }
   }
-  
+
   public static function correctFilterOptionsFromChart(){
-    
+
   }
-  
+
   public function attachPdf( $name = null ){
     global $sugar_config;
     require_once('modules/reg_invoices/views/view.pdf.php');
     require_once('modules/Notes/Note.php');
-    
+
     if( empty($name) ) $name = 'Invoice';
-    
+
     // We need a note
     $note=new Note();
     $note->name = $name;
@@ -279,15 +298,15 @@ class reg_invoices extends Sale {
     $note->file_mime_type="application/pdf";
     $note->filename="$name.pdf";
     $note->save();
-    
+
     $view = new reg_invoicesViewPdf();
     $view->bean = $this;
     $view->preDisplay();
-    
+
     $saveToFile = trim($sugar_config['upload_dir'], ' /') . "/$note->id";
     $view->display( "$saveToFile.pdf" );
     rename( "$saveToFile.pdf", $saveToFile );
-		
+
 		return $note;
   }
 

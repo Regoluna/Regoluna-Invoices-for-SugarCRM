@@ -50,6 +50,16 @@ $dictionary['reg_invoices'] = array(
     'enable_range_search' => true,
     'options' => 'numeric_range_search_dom'
   ),
+	'prefix' =>
+	array (
+		'required' => false,
+		'name' => 'prefix',
+		'vname' => 'LBL_PREFIX',
+		'type' => 'varchar',
+		'massupdate' => 0,
+		'comments' => 'Prefix for invoice number using daily numbering',
+		'len' => '25',
+	),
   'date_closed' =>
   array (
     'required' => '1',
@@ -295,7 +305,7 @@ $dictionary['reg_invoices'] = array(
         'vname' => 'LBL_IMPUESTO_UNICO',
         'type' => 'bool',
   ),
- 
+
 	// For items subpanel
   'items'=> array(
     'name' => 'items',
@@ -334,7 +344,7 @@ $dictionary['reg_invoices'] = array(
     'type' => 'id',
     'vname' => 'LBL_ACCOUNT',
   ),
-  
+
   // Related Company (Issuer).
   'issuer' => array (
     'name' => 'issuer',
