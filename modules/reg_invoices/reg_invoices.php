@@ -118,6 +118,7 @@ class reg_invoices extends Sale {
    */
   private function calculateYear(){
     global $timedate;
+
     $dateParts = explode('-', $timedate->to_db($this->date_closed));
 
     if (is_numeric($dateParts[0])) {
@@ -166,7 +167,7 @@ class reg_invoices extends Sale {
 
   function calculateNumberingPrefix(){
     global $timedate;
-    $this->prefix = str_replace('-', '', $timedate->to_db_date($this->date_closed));
+    $this->prefix = str_replace('-', '', $timedate->to_db_date($this->date_closed, false) );
   }
 
   /**
