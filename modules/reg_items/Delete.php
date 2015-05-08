@@ -26,11 +26,11 @@ else
 	$GLOBALS['log']->info("deleting Item: $record");
 
 	// Antes de borrar, obtenemos el ID de la factura
-  $sql = " select invoice_id from invoice_items where deleted=0 and id = '$record' ";
+  $sql = " select invoice_id from reg_items where deleted=0 and id = '$record' ";
   $result = $sugarbean->db->query($sql);
   $row = $sugarbean->db->fetchByAssoc($result);
   $invoice_id = $row['invoice_id'];
-	
+
 	// Borramos el Item
 	$sugarbean->mark_deleted($record);
 
