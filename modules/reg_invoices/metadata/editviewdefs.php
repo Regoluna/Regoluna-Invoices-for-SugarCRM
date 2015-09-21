@@ -23,7 +23,12 @@ array (
       ),
       'javascript' => '{$PROBABILITY_SCRIPT}',
       'includes' => array (
-        array ( 'file' => 'include/javascript/tiny_mce/tiny_mce.js' ),
+        array (
+          'file' => 'include/javascript/tiny_mce/tiny_mce.js'
+        ),
+        array (
+          'file' => 'modules/reg_invoices/js/regInvoicesEdit.js'
+        ),
       ),
     ),
     'panels' =>

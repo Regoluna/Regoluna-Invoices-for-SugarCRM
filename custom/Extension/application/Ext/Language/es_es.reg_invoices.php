@@ -32,6 +32,8 @@ $app_list_strings['reg_invoice_state_dom']=array(
   'invoice_waiting' => 'Factura en espera de aprobación',
   'invoice_emitted' => 'Factura Emitida',
   'invoice_paid' => 'Factura Cobrada',
+  'proforma_in_process' =>'Proforma en elaboración',
+  'proforma_sent' => 'Proforma enviada',
 );
 
 
