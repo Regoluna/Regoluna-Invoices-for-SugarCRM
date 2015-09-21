@@ -11,7 +11,8 @@ if(!defined('sugarEntry') || !sugarEntry) die('Not A Valid Entry Point');
  * by the Free Software Foundation, version 3 of the License.
  *
  ********************************************************************************/
-$dashletStrings['RegInvoicesChartDashlet'] = array('LBL_TITLE'       => 'Invoicing by month',
-                                                 'LBL_DESCRIPTION' => 'Show emited invoices by month',
-                                                 'LBL_REFRESH'     => 'Refresh Chart');
+$dashletStrings['RegInvoicesChartDashlet'] = array(
+  'LBL_TITLE'       => 'Invoicing by month',
+  'LBL_DESCRIPTION' => 'Show emited invoices by month',
+  'LBL_REFRESH'     => 'Refresh Chart');
 ?>
