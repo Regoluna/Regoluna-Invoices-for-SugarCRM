@@ -35,4 +35,7 @@ $( document ).ready(function() {
 
   }
 
+  // Fix bug with 'prefix' field
+  removeFromValidate('EditView','prefix');
+
 });
