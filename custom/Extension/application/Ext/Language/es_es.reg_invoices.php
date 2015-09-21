@@ -25,6 +25,9 @@ $app_list_strings['reg_invoice_state_dom']=array(
   'quote_in_process' => 'Presupuesto en elaboracion',
   'quote_delivered' => 'Presupuesto enviado',
   'quote_accepted' => 'Presupuesto aceptado',
+  'quote_cancelled' => 'Presupuesto cancelado',
+  'quote_lost' => 'Presupuesto perdido',
+  'quote_replaced' => 'Presupuesto reemplazado',
   'invoice_in_process' =>'Factura en elaboración',
   'invoice_waiting' => 'Factura en espera de aprobación',
   'invoice_emitted' => 'Factura Emitida',
@@ -124,4 +127,3 @@ $app_list_strings['reg_companies_type_dom']['J']='Persona jurídica';
 $app_list_strings['reg_companies_residence_dom']['R']='Residente en España';
 $app_list_strings['reg_companies_residence_dom']['U']='Residente en la unión Europea';
 $app_list_strings['reg_companies_residence_dom']['E']='Extranjero';
-
