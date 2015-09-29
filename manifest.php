@@ -1,13 +1,13 @@
 <?php
 $manifest = array (
-  'acceptable_sugar_versions' => 
+  'acceptable_sugar_versions' =>
   array (
-    'regex_matches' => 
+    'regex_matches' =>
     array (
       0 => '6.*\\.*',
     ),
   ),
-  'acceptable_sugar_flavors' => 
+  'acceptable_sugar_flavors' =>
   array (
     0 => 'CE',
     1 => 'PRO',
@@ -26,16 +26,16 @@ $manifest = array (
 
 $installdefs = array (
   'id' => 'reg_invoices',
-  'layoutdefs' => 
+  'layoutdefs' =>
   array (
-    0 => 
+    0 =>
     array (
       'from' => '<basepath>/subpanels/accounts_subpanels.php',
       'to_module' => 'Accounts',
     ),
   ),
 
-  'copy' => 
+  'copy' =>
   array (
 
     array (
@@ -57,12 +57,12 @@ $installdefs = array (
       'from' => '<basepath>/custom/Extension/application/Ext/Include/reg_companies.php',
       'to' => 'custom/Extension/application/Ext/Include/reg_companies.php',
     ),
-    
+
     array (
       'from' => '<basepath>/custom/Extension/application/Ext/Include/reg_invoices.php',
       'to' => 'custom/Extension/application/Ext/Include/reg_invoices.php',
     ),
-    
+
     array (
       'from' => '<basepath>/custom/Extension/application/Ext/Include/reg_items.php',
       'to' => 'custom/Extension/application/Ext/Include/reg_items.php',
@@ -126,11 +126,6 @@ $installdefs = array (
     array (
       'from' => '<basepath>/include/html2pdf_v3.28',
       'to' => 'include/html2pdf',
-    ),
-
-    array (
-      'from' => '<basepath>/modules/Charts/Dashlets/RegInvoicesChartDashlet',
-      'to' => 'modules/Charts/Dashlets/RegInvoicesChartDashlet',
     ),
 
     array (
@@ -216,9 +211,9 @@ $installdefs = array (
     ),
   ),
 
-  'vardefs' => 
+  'vardefs' =>
   array (
-    0 => 
+    0 =>
     array (
       'from' => '<basepath>/vardefs/accounts_vardefs.php',
       'to_module' => 'Accounts',
