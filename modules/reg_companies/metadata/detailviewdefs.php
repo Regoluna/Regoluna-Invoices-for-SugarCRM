@@ -20,7 +20,7 @@ $viewdefs[$module_name]['DetailView'] = array(
     'default' => array (
       array ( 'name', 'name2' ),
       array ( 'nif', 'name3'  ),
-      array ('is_default', null ),
+      array ('is_default', 'invoice_prefix' ),
       array ('footer_text' ),
       array (
         'description',

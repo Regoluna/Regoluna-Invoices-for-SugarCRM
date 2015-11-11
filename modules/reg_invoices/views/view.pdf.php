@@ -138,14 +138,16 @@ class reg_invoicesViewPdf extends InvoiceView{
     // Cabecera - FileHEader
     // ******************************
     $restartConditions = $sugar_config['fact_restart_number'];
+    $identifier = '';
+    $invoicePrefix = empty($this->issuer->invoice_prefix)? '':$this->issuer->invoice_prefix;
     if( $restartConditions == 2 && !empty( $this->bean->prefix ) ){
-      $this->ss->assign("Identifier","{$this->bean->prefix}-{$this->bean->number}");
+      $identifier = "{$invoicePrefix}{$this->bean->prefix}-{$this->bean->number}";
     }elseif( $restartConditions == 1 && !empty( $this->bean->year ) ){
-      $this->ss->assign("Identifier","{$this->bean->year}-{$this->bean->number}");
+      $identifier = "{$invoicePrefix}{$this->bean->year}-{$this->bean->number}";
     }else{
-      $this->ss->assign("Identifier",$this->bean->number);
+      $identifier = $invoicePrefix.$this->bean->number;
     }
-
+    $this->ss->assign("Identifier",$identifier);
     $this->ss->assign("TotalInvoicesAmount",$this->format_to_pdf($this->bean->amount));
     $this->ss->assign("TotalOutstandingAmount",$this->format_to_pdf($this->bean->amount));
     $this->ss->assign("TotalExecutableAmount",$this->format_to_pdf($this->bean->amount));

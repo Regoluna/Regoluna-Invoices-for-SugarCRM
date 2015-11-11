@@ -284,6 +284,26 @@ $dictionary['reg_companies'] = array(
        'source' => 'non-db',
     ),
 
+		'invoice_prefix' => array (
+      'required' => false,
+      'name' => 'invoice_prefix',
+      'vname' => 'LBL_INVOICE_PREFIX',
+      'type' => 'varchar',
+      'massupdate' => 0,
+      'no_default' => false,
+      'comments' => '',
+      'help' => '',
+      'importable' => 'true',
+      'duplicate_merge' => 'disabled',
+      'duplicate_merge_dom_value' => '0',
+      'audited' => false,
+      'reportable' => true,
+      'unified_search' => false,
+      'merge_filter' => 'disabled',
+      'len' => '10',
+      'size' => '10',
+    ),
+
   ),
 
 	'relationships'=>array (

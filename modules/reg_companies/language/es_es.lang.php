@@ -47,4 +47,5 @@ $mod_strings = array (
   'LBL_IS_DEFAULT' => 'Por defecto',
   'LBL_LOGO_IMAGE_FILE' => 'Imagen logotipo',
   'LBL_FOOTER' => 'Texto para el pie (PDF)',
+  'LBL_INVOICE_PREFIX' => 'Prefijo para el Nº de factura',
 );
